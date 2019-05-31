@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+<html>
+	<head>
+		<title>TURBO NEWS</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo">Turbo News</a>
+				<nav id="nav">
+					<a href="generic.html">Ficha Técnica</a>
+					<a href="elements.html">Opinião do Dono</a>
+                    <a href="login.html">Login</a>
+				</nav>
+			</div>
+		</header>
+		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        
+	       
+        <div id="login-box">
+        	<form method="POST">
+        	{% csrf_token %}
+
+	        	{% if formValido %}
+	        		<p> Usuário cadastrado com sucesso! </p>
+	     		{% endif %}
+	   
+			   	<h1> Cadastre-se</h1>
+		        {{ form.as_p }}
+	     
+	        	<input type="submit" name="signup-button" value="Cadastre-se"/> 
+        	</form>
