@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+{% load static %}
 
 <html>
 	<head>
@@ -6,7 +6,7 @@
          <link rel="shortcut icon" href="images/tn.png" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 	</head>
 	<body>
 
@@ -15,9 +15,9 @@
 				<div class="inner">
 					<a href="index.html" class="logo">Turbo News</a>
 					<nav id="nav">
-						<a href="generic.html">Ficha Técnica</a>
-						<a href="elements.html">Opinião do Dono</a>
-                        <a href="login.html">Login</a>
+						<a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
+						<a href="{% url 'elements' %}">Opinião do Dono</a>
+                        <a href="{% url 'cadastro' %}">Login</a>
 					</nav>
 				</div>
 			</header>
