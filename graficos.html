@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>TURBO NEWS</title>
+         <link rel="shortcut icon" href="images/tn.png" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        
+        <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: false,
+	theme: "light2",
+	title:{
+		text: "Variação da Tabela FIPE"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520 },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+        
+        
+	</head>
+	<body>
+
+        
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo">Turbo News</a>
+					<nav id="nav">
+						<a href="ficha-tecnica.html">Ficha Técnica</a>
+						<a href="elements.html">Opinião do Dono</a>
+                        <a href="login.html">Login</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        
+<div class="container">
+<script>
+    
+    function draw() {
+        /* Accepting and seperating comma seperated values */
+        var n = document.getElementById("num").value;
+        var values = n.split(',');
+        
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var width = 40; //bar width
+        var X = 50; // first bar position 
+        var base = 200;
+        
+        for (var i =0; i<values.length; i++) {
+            ctx.fillStyle = '#008080'; 
+            var h = values[i];
+            ctx.fillRect(X,canvas.height - h,width,h);
+            
+            X +=  width+15;
+            /* text to display Bar number */
+            ctx.fillStyle = '#4da6ff';
+            ctx.fillText('Bar '+i,X-50,canvas.height - h -10);
+        }
+            /* Text to display scale */
+            ctx.fillStyle = '#000000';
+            ctx.fillText('Scale X : '+canvas.width+' Y : '+canvas.height,800,10);
+  
+    }
+    function reset(){
+         var canvas = document.getElementById('myCanvas');
+          var ctx = canvas.getContext('2d');
+           ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+</script> 
+    
+    <h3>Mais vendidos por segmento:</h3>
+    
+    <h5> Escolha o Segmento</h5>
+			<select style="width: 25%;">
+			    <option value="volvo"> Sedan </option>
+			    <option value="saab"> Hatch </option>
+			    <option value="opel"> SUV </option>
+			    <option value="audi"> Pick-up </option>
+			</select>
+    <br>
+
+
+<!--
+    Enter the values seperated by a comma<br> 
+    <input type="text" name="number" id="num"><br>
+    <input type="button" value="submit" name="submit" onclick="draw()">
+    <input type="button" value="Clear" name="Clear" onclick="reset()"><br><br> -->
+    <canvas id="myCanvas" width="900" height="500" style="border:1px solid #c3c3c3;">
+    </canvas> 
+        </div>
+    
+<br>   
+    <h3>Variação da Tabela FIPE</h3>
+    
+    <h5> Escolha o Veículo</h5>
+			<select style="width: 25%;">
+			    <option value="volvo"> Hyundai HB20 </option>
+			    <option value="saab"> Volvo S90 </option>
+			    <option value="opel"> Nissan Leaf </option>
+			    <option value="audi"> Chevrolet Bolt </option>
+			</select>
+        <br>
+        
+      <h5> Escolha o ano do veículo</h5>
+			<select style="width: 25%;">
+			    <option value="volvo"> 2019 </option>
+			    <option value="saab"> 2018 </option>
+			    <option value="opel"> 2017 </option>
+			    <option value="audi"> 2016 </option>
+			</select>
+    <br>
+        
+        
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>     
+        
+         
+    </body>
+</html>

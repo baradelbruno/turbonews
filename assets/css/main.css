@@ -3126,7 +3126,7 @@
 
 	body {
 		position: relative;
-		padding-top: 5em;
+		padding-top: 7em;
 	}
 
 	#header {
@@ -3993,4 +3993,50 @@
             max-width:100%;
             height:auto;
         }
+    
+.chart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(100, 1fr);
+  grid-column-gap: 5px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background-color: #eee;
+  justify-content: center;
+}
+
+.chart {
+  height: 50vh;
+  width: 70vw;
+  /* other chart styles go here */
+}
+
+[class*="bar"] {
+  grid-row-start: 1;
+  grid-row-end: 101;
+  border-radius: 5px 5px 0 0;
+  background-color: #ff4136;
+}
+
+.grid {
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.special-col {
+  grid-row: 2 / 4;
+  background-color: #222;
+}
+
+[class*="bar"] {
+  grid-row-end: 101;
+}
+
+.bar-1 {
+  grid-row-start: 20;
 }
