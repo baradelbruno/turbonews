@@ -1,4 +1,5 @@
-<!DOCTYPE HTML>
+{% load static %}
+
 <html>
 	<head>
 		<title> Login </title>
@@ -7,7 +8,7 @@
 		<link rel="shortcut icon" href="images/tn.png" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/login.css"/>
+		<link rel="stylesheet" href="{% static 'assets/css/cadastro.css' %}"/>
 	</head>
 	
 	<body>
@@ -17,9 +18,9 @@
 		<div class="inner">
 			<a href="index.html" class="logo">Turbo News</a>
 			<nav id="nav">
-				<a href="ficha-tecnica.html">Ficha Técnica</a>
-				<a href="elements.html">Opinião do Dono</a>
-                <a href="login.html">Login</a>
+				<a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
+				<a href="{% url 'elements' %}">Opinião do Dono</a>
+                <a href="{% url 'login' %}">Login</a>
 			</nav>
 		</div>
 	</header>
@@ -38,45 +39,47 @@
 		</div>
 	</section>
         
-        <div class="container h-100">
+    <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
+				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="images/tn.png" class="brand_logo" alt="Logo">
+						<img src="{{STATIC_URL}}static/images/tn.png" class="brand_logo" alt="Logo"/>
 					</div>
 				</div>
+				
 				<div class="d-flex justify-content-center form_container">
-					<form>
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"></span>
-							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="Nome de usuário ou e-mail">
+				<form method="POST">
+				{% csrf_token %}
+
+					<div class="input-group mb-3">
+						<div class="input-group-append">
+							<span class="input-group-text"></span>
 						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"></span>
-							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="Senha">
+						<input type="text" class="form-control input_user" name="username" placeholder="Nome de usuário ou e-mail">
+					</div>
+					
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"></span>
 						</div>
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Mantenha-me conectado</label>
-							</div>
-						</div>
-					</form>
+						<input type="password" class="form-control input_pass" name="senha" placeholder="Senha">
+					</div>
 				</div>
-				<div class="d-flex justify-content-center mt-3 login_container">
-					<button type="button" name="button" class="btn login_btn">Login</button>
-				</div>
+				
+					<div class="d-flex justify-content-center mt-3 login_container">
+						<button type="submit" name="button" class="btn login_btn">Login</button>
+					</div>
+				</form>
+				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
                         <label class="custom-question-label" >Não tem uma conta? </label>
-						<a href="cadastro.html" class="ml-2">Cadastre-se</a>
+						<a href="{% url 'cadastro' %}" class="ml-2">Cadastre-se</a>
 					</div>
 				</div>
+			
 			</div>
 		</div>
 	</div>

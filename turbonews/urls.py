@@ -22,6 +22,7 @@ from turbonews.core import views
 urlpatterns = [
     path('admin/', admin.site.urls),	
     path('', views.home, name="home"),
+    path('login', views.login, name="login"),
     path('cadastro', views.cadastro, name="cadastro"),
     path('elements/', views.elements, name="elements"),
     path('ficha-tecnica/', views.fichaTecnica, name="ficha-tecnica")

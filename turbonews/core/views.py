@@ -31,7 +31,27 @@ def cadastro(request):
 		"formValido" : formValido
 	}
 
-	return render(request, "cadastro.html", context)
+	return render(request, templateName, context)
+
+def login(request):
+	templateName = "login.html"
+	loginValido = True
+
+	if request.method == "POST":
+		username = request.POST['username']
+		senha = request.POST['senha']
+
+		if Usuario.objects.filter(username=username, senha=senha).exists():
+			return render(request, templateName)
+
+		else:
+			loginValido = False
+
+	context = {
+		"loginValido" : loginValido
+	}
+
+	return render(request, templateName, context)
 
 def elements(request):
 	return render(request, "elements.html")
