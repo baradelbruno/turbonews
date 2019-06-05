@@ -40,6 +40,7 @@ def login(request):
 	if request.method == "POST":
 		username = request.POST['username']
 		senha = request.POST['senha']
+		templateName = "index_log.html"
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
 			return render(request, templateName)
@@ -58,3 +59,12 @@ def elements(request):
 
 def fichaTecnica(request):
 	return render(request, "ficha-tecnica.html")
+
+def fichaBolt(request):
+	return render(request, "ficha-bolt.html")
+
+def fichaLeaf(request):
+	return render(request, "ficha-leaf.html")
+
+def fichaVolvo(request):
+	return render(request, "ficha-volvo.html")

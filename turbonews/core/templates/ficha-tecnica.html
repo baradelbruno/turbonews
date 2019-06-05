@@ -1,0 +1,109 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>TURBO NEWS</title>
+        <link rel="shortcut icon" href="{% static 'assets/images/tn.png' %}" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'assets/css/cadastro.css' %}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        
+	</head>
+    
+    <body>
+
+	<!-- Header -->
+	<header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Turbo News</a>
+            <nav id="nav">
+                <a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
+                <a href="{% url 'elements' %}">Opinião do Dono</a>
+                <a href="{% url 'login' %}">Login</a>
+            </nav>
+        </div>
+    </header>
+	
+   	<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    <br>
+        
+    <div class="container">
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Buscar Carros</label>
+                <input class="form-control" type="text">
+            </div>
+        </div>
+    </div>
+        
+    <br>
+
+    <!-- CARRO 1 -->
+   
+    <div class="container p-3" style="border-bottom: solid 1px" color: darkred>    
+        <tr>
+            <font size="2" face="arial">
+                <a href="{% url 'ficha-bolt' %}"><img src="images/bolt.jpg" title="Ficha técnica, equipamentos e fotos do Chevrolet Premier" vspace="0" border="0" height="250" width="350"></a>
+            </font>
+            
+            <td bgcolor="#ffffff" align="left">   
+                <font size="2" face="arial"><a href="{% url 'ficha-bolt' %}" title="Chevrolet Bolt Premier">
+                <font class="ml-4" size="5" color="gray"><b>Chevrolet
+                <font size="5" color="darkred">Bolt Premier
+                </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
+                </font>
+                <font size="5" color="gray">2019</font>
+                <font size="5" color="darkblue"><b>0 km</b></font>
+                </font></font></font></td>  
+        </tr>      
+    </div>
+
+    <!-- CARRO 2 -->
+
+    <div class="container p-3" style="border-bottom: solid 1px">
+        <tr>
+            <td bgcolor="#ffffff" align="center">
+            <font size="2" face="arial"><a href="{% url 'ficha-volvo' %}"><img src="images/volvo-s90.jpg" title="Ficha técnica, equipamentos e fotos do Volvo Inscription T8 2.0" vspace="0" border="0" height="250" width="350"></a></font>
+            </td>
+               
+            <td bgcolor="#ffffff" align="left"> 
+            <font size="2" face="arial"><a href="{% url 'ficha-volvo' %}" title="Volvo Inscription T8 2.0">
+            <font class="ml-4" size="5" color="gray"><b>Volvo
+            <font size="5" color="darkred">S90 Inscription T8 2.0
+            </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
+            </font>
+            <font size="5" color="gray">2019</font>
+            <font size="5" color="darkblue"><b>0 km</b></font>
+            </font></font></font>
+            </td>  	
+        </tr>
+    </div>
+
+
+    <!-- CARRO 3 -->    
+
+    <div class="container p-3" style="border-bottom: solid 1px">
+        <tr>
+            <td bgcolor="#ffffff" align="center">
+            <font size="2" face="arial"><a href="{% url 'ficha-leaf' %}"><img src="images/leaf.jpg" title="Ficha técnica, equipamentos e fotos do Nissan Leaf ZE" vspace="0" border="0" height="250" width="350"></a></font></td>
+            <td bgcolor="#ffffff" align="left"> 
+            <font size="2" face="arial"><a href="{% url 'ficha-leaf' %}" title="Nissan Leaf ZE">
+            <font class="ml-4" size="5" color="gray"><b>Nissan
+            <font size="5" color="darkred">Leaf ZE
+            </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
+            </font>
+            <font size="5" color="gray">2019</font>
+            <font size="5" color="darkblue"><b>0 km</b></font>
+            </font></font></font></td>  
+        </tr>  
+    </div>
+        
+    </body>
+</html>
