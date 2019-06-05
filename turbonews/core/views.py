@@ -40,7 +40,7 @@ def login(request):
 	if request.method == "POST":
 		username = request.POST['username']
 		senha = request.POST['senha']
-		templateName = "index_log.html"
+		templateName = "index-log.html"
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
 			return render(request, templateName)
@@ -68,3 +68,6 @@ def fichaLeaf(request):
 
 def fichaVolvo(request):
 	return render(request, "ficha-volvo.html")
+
+def homeLog(request):
+	return render(request, "index-log.html")

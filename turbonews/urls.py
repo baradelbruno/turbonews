@@ -30,5 +30,7 @@ urlpatterns = [
     path('ficha-leaf/', views.fichaLeaf, name="ficha-leaf"),
     path('ficha-volvo/', views.fichaVolvo, name="ficha-volvo"),
 
+    path('index-log', views.homeLog, name="home-log"),
+
     # path('\d+', views.fichaTecnica, name="ficha-tecnica")
 ]
