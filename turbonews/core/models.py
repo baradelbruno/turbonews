@@ -15,6 +15,7 @@ class Usuario(models.Model):
 	createdAt = models.DateTimeField('Criado em', auto_now_add=True)
 	updatedAt = models.DateTimeField('Atualizado em', auto_now=True)
 
+<<<<<<< HEAD
 	objects = UsuarioManager()
 
 class Carro(models.Model):
@@ -28,3 +29,6 @@ class Carro(models.Model):
 	segmento = models.CharField('Segmento', max_length=50, blank=True, null=True)
 	numVendas = models.IntegerField('numVendas', blank=True, null=True)
 	precoFipe = models.FloatField('PrecoFipe', blank=True, null=True)
+=======
+	objects = UsuarioManager()
+>>>>>>> master

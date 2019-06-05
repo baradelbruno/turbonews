@@ -29,5 +29,6 @@ urlpatterns = [
     path('ficha-bolt/', views.fichaBolt, name="ficha-bolt"),
     path('ficha-leaf/', views.fichaLeaf, name="ficha-leaf"),
     path('ficha-volvo/', views.fichaVolvo, name="ficha-volvo"),
+
     # path('\d+', views.fichaTecnica, name="ficha-tecnica")
 ]
