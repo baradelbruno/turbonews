@@ -34,16 +34,15 @@ def cadastro(request):
 	return render(request, templateName, context)
 
 def login(request):
-	templateName = "login.html"
 	loginValido = True
 
 	if request.method == "POST":
 		username = request.POST['username']
 		senha = request.POST['senha']
-		templateName = "index-log.html"
+		print("penis")
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
-			return render(request, templateName)
+			return render(request, "index-log.html")
 
 		else:
 			loginValido = False
@@ -52,7 +51,7 @@ def login(request):
 		"loginValido" : loginValido
 	}
 
-	return render(request, templateName, context)
+	return render(request, "login.html", context)
 
 def elements(request):
 	return render(request, "elements.html")
