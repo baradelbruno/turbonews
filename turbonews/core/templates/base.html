@@ -1,0 +1,37 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>TURBO NEWS</title>
+        <link rel="shortcut icon" href="{{STATIC_URL}}static/images/tn.png" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	
+	<body>
+
+		<header id="header">
+			<div class="inner">
+				<a href="{% url 'home' %}" class="logo">Turbo News</a>
+				<nav id="nav">
+					<a href="{% url 'ficha-tecnica' %}"> Ficha Técnica</a>
+					<a href="{% url 'elements' %}"> Opinião do Dono</a>
+                    <a href="{% url 'login' %}"> Login</a>
+				</nav>
+			</div>
+		</header>
+	
+		<a href="#menu" class="navPanelToggle"> <span class="fa fa-bars"></span></a>
+
+		{% block content %} 
+			{# Conteúdo da página vem aqui #}
+		{% endblock %} 
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

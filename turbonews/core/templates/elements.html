@@ -1,38 +1,16 @@
-{% load static %}
-<html>
-	<head>
-		<title> Opinião do dono - TURBO NEWS </title>
-		<link rel="shortcut icon" href="images/tn.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
-	</head>
-	
-	<body>
+{% extends 'base.html' %}
 
-	<!-- Header -->
-	<header id="header">
-		<div class="inner">
-			<a href="index.html" class="logo">Turbo News</a>
-			<nav id="nav">
-				<a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
-				<a href="{% url 'elements' %}">Opinião do Dono</a>
-                <a href="{% url 'login' %}">Login</a>
-			</nav>
-		</div>
-	</header>
-		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+{% block content %}
 
-		<!-- Main -->
 	<section id="main">
 		<div class="inner">
 			
 			<h3> Escolha outro carro </h3>
-			<select style="width: 25%;">
-			    <option value="volvo"> Volvo </option>
-			    <option value="saab"> Saab </option>
-			    <option value="opel"> Opel </option>
-			    <option value="audi"> Audi </option>
+			<select onchange="location = this.value;" style="width: 25%;">
+			    <option value="{% url 'home' %}"> Volvo </option>
+			    <option value="{% url 'home' %}"> Saab </option>
+			    <option value="{% url 'home' %}"> Opel </option>
+			    <option value="{% url 'home' %}"> Audi </option>
 			</select>
 
 			<h1 class="align-center"> Hyundai HB20 </h1>
@@ -105,18 +83,11 @@
 			<div class="container-top-down">
 				<h3> Tem um HB20? </h3>
 				<ul class="actions">
-					<li><a href="noticia-hrv.html" class="button alt"> Dê sua opinião </a></li>
+					<li><a href="{% url 'cadastro-opiniao' %}" class="button alt"> Dê sua opinião </a></li>
 				</ul>
 			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+			
 		</div>
 	</section>
-	
-	</body>
-</html>
+
+{% endblock %}

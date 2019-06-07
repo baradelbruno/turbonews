@@ -1,55 +1,30 @@
-<!DOCTYPE HTML>
-<!--
-	Introspect by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>TURBO NEWS</title>
-         <link rel="shortcut icon" href="images/tn.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+{% extends 'base.html' %}
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo">Turbo News</a>
-					<nav id="nav">
-						<a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
-						<a href="{% url 'elements' %}">Opinião do Dono</a>
-		                <a href="{% url 'login' %}">Login</a>
-					</nav>
-				</div>
-			</header>
-			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+{% block content %}
         
-		<!-- Main -->
-			<section id="main" >
-				<div class="inner">
-					<header class="major special">
-						<h1>AUMENTO NO PREÇO DO GOLF GTI</h1>
-						<p>Com aumentos de até R$ 5.500, com sua versão mais completa saindo a R$ 172.235.</p>
-					</header>
-					<a href="#" class="image fit"><img src="images/gti-noticia.jpg" alt="" /></a>
-					<p>Se você achou que, porque o Golf tinha escapado do aumento de preços de início de ano da Volkswagen, o preço do modelo ficaria igual por muito tempo, temos uma má notícia - e das grandes. O começo de fevereiro de 2019 trouxe um encarecimento significativo para a versão topo de linha do carro, o esportivo Golf GTI. O hatch médio, que era vendido por R$ 143.790 até mês passado, agora custa R$ 149.290, ou seja, está R$ 5.500 mais caro.</p>
-                    <p>O modelo, que já tinha um preço mais salgado do que a versão intermediária do Golf - a TSI Highline, de R$ 112.190 -, agora ampliou ainda mais essa distância. Considerando os preços atualizados, a diferença de valor de uma versão para a outra é de R$ 37.100.</p>
-                    <a href="#" class="image fit"><img src="images/gti-noticia2.jpg" alt="" /></a>
-                    <p>E se você não quer nem pensar na possibilidade do preço do Golf GTI acabar maior ainda, fique bem longe da lista de opcionais, acessórios e cores disponíveis para o carro. Para ter um hatch esportivo de cor metálica, contabilize mais R$ 1.820. Para cor perolada, então, tem que desembolsar ainda mais: R$ 2.285. E que tal um teto solar panorâmico por R$ 4.985? Se tudo isso ainda não for o bastante, ainda existe a opção de adicionar ao Golf GTI um Pacote Sport, de R$ 6.125, que inclui ajuste da altura dos bancos, apoio lombar ajustável eletricamente e revestimentos dos bancos parcialmente em couro.</p>
-                    <p>Mas tem mais: existe a opção do Pacote Premium, de R$ 9.550. Ele inclui ajuste de distância automático, assistente de estacionamento, assistente para luz alta, farol principal com LED com luz para trânsito em curvas, Front Assist inclusive de freio de emergência automático para trânsito na cidade e reconhecimento de cansaço. A soma de tudo isso? R$ 172.235 - mais de R$ 7 mil a mais do que o cobrado pelo Passat, sedã premium da marca alemã (atualmente vendido por R$ 164.620).</p>
-                    <p>O VW Golf GTI é a versão mais potente do modelo disponível no mercado brasileiro. Ele é o único da linha com motor 2.0 - e também a única das três versões disponíveis que é movida apenas à gasolina. Ele é capaz de entregar 220 cv de potência e torque de 35,7 kgfm. Já o câmbio é automático de seis velocidades.</p>
-				</div>
-			</section>
+	<!-- Main -->
+	<section id="main" >
+		<div class="inner">
+			<header class="major special">
+				<h1>AUMENTO NO PREÇO DO GOLF GTI</h1>
+				<p>Com aumentos de até R$ 5.500, com sua versão mais completa saindo a R$ 172.235.</p>
+			</header>
+	
+			<a href="#" class="image fit"><img src="images/gti-noticia.jpg" alt="" /></a>
+			<p>Se você achou que, porque o Golf tinha escapado do aumento de preços de início de ano da Volkswagen, o preço do modelo ficaria igual por muito tempo, temos uma má notícia - e das grandes. O começo de fevereiro de 2019 trouxe um encarecimento significativo para a versão topo de linha do carro, o esportivo Golf GTI. O hatch médio, que era vendido por R$ 143.790 até mês passado, agora custa R$ 149.290, ou seja, está R$ 5.500 mais caro.</p>
+            <p>O modelo, que já tinha um preço mais salgado do que a versão intermediária do Golf - a TSI Highline, de R$ 112.190 -, agora ampliou ainda mais essa distância. Considerando os preços atualizados, a diferença de valor de uma versão para a outra é de R$ 37.100.</p>
+            <a href="#" class="image fit"><img src="images/gti-noticia2.jpg" alt="" /></a>
+            <p>E se você não quer nem pensar na possibilidade do preço do Golf GTI acabar maior ainda, fique bem longe da lista de opcionais, acessórios e cores disponíveis para o carro. Para ter um hatch esportivo de cor metálica, contabilize mais R$ 1.820. Para cor perolada, então, tem que desembolsar ainda mais: R$ 2.285. E que tal um teto solar panorâmico por R$ 4.985? Se tudo isso ainda não for o bastante, ainda existe a opção de adicionar ao Golf GTI um Pacote Sport, de R$ 6.125, que inclui ajuste da altura dos bancos, apoio lombar ajustável eletricamente e revestimentos dos bancos parcialmente em couro.</p>
+            <p>Mas tem mais: existe a opção do Pacote Premium, de R$ 9.550. Ele inclui ajuste de distância automático, assistente de estacionamento, assistente para luz alta, farol principal com LED com luz para trânsito em curvas, Front Assist inclusive de freio de emergência automático para trânsito na cidade e reconhecimento de cansaço. A soma de tudo isso? R$ 172.235 - mais de R$ 7 mil a mais do que o cobrado pelo Passat, sedã premium da marca alemã (atualmente vendido por R$ 164.620).</p>
+            <p>O VW Golf GTI é a versão mais potente do modelo disponível no mercado brasileiro. Ele é o único da linha com motor 2.0 - e também a única das três versões disponíveis que é movida apenas à gasolina. Ele é capaz de entregar 220 cv de potência e torque de 35,7 kgfm. Já o câmbio é automático de seis velocidades.</p>
+		</div>
+	</section>
 
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
-</html>
+{% endblock %}

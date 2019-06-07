@@ -23,3 +23,18 @@ class Carro(models.Model):
 	segmento = models.CharField('Segmento', max_length=50, blank=True, null=True)
 	numVendas = models.IntegerField('numVendas', blank=True, null=True)
 	precoFipe = models.FloatField('PrecoFipe', blank=True, null=True)
+
+class Opiniao(models.Model):
+
+	def __str__(self):
+		return self.idCarro
+
+	idCarro = models.IntegerField('idCarro')
+	titulo = models.TextField('Titulo')
+	pros = models.TextField('Pros')
+	contras = models.TextField('Contras')
+	geral = models.TextField('Geral')
+
+	# Notas
+	estilo = models.IntegerField('Estilo')
+	acabamento =  models.IntegerField('Acabamento')

@@ -26,11 +26,11 @@
 	</header>
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
-		<!-- Main -->
+	<!-- Main -->
 	<section id="main">
 		<div class="inner">
 
-		<!-- Scripts -->
+			<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
@@ -40,9 +40,12 @@
 	</section>
         
     <div class="container h-100">
+    	{% if loginInvalido %}
+				<p class="align-center"> Erro: Não existe nenhum usuário com os dados informados </p>
+		{% endif %}
+
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
-				
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
 						<img src="{{STATIC_URL}}static/images/tn.png" class="brand_logo" alt="Logo"/>
@@ -50,7 +53,7 @@
 				</div>
 				
 				<div class="d-flex justify-content-center form_container">
-				<form method="POST">
+				<form method="POST" target="{% url 'home-log'%}">
 				{% csrf_token %}
 
 					<div class="input-group mb-3">
