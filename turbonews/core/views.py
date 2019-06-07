@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from collections import OrderedDict
 from .models import Usuario, Carro
 from .forms import CadastroUsuario, CadastroOpiniao
+from .fusioncharts import FusionCharts
 
 def home(request):
 	return render(request, "index.html")
@@ -94,6 +96,65 @@ def cadastroOpiniao(request):
 	}
 
 	return render(request, "cadastro-opiniao.html", context)
+
+def graficos(request):
+    
+    pau = Carro.objects.filter(modelo="HB20")
+    
+    dataSource = {
+      "chart": {
+        "caption": "Tabela FIPE",
+        "xAxisName": "Data",
+        "yAxisName": "Preço",
+        "theme": "fusion"
+      },
+
+      "data": [
+        {
+          "label": "Mai/2019",
+          "value": pau[0].precoFipe
+        },
+        {
+          "label": "Saudi",
+          "value": "260"
+        },
+        {
+          "label": "Canada",
+          "value": "180"
+        },
+        {
+          "label": "Iran",
+          "value": "140"
+        },
+        {
+          "label": "Russia",
+          "value": "115"
+        },
+        {
+          "label": "UAE",
+          "value": "100"
+        },
+        {
+          "label": "US",
+          "value": "30"
+        },
+        {
+          "label": "China",
+          "value": "30"
+        }
+      ]
+    }
+
+
+
+    # Create an object for the column 2D chart using the FusionCharts class constructor
+    # The chart data is passed to the `dataSource` parameter.
+    column2D = FusionCharts("column2d", "myFirstChart", "600", "400", "myFirstchart-container", "json", dataSource)
+
+
+    return render(request, "graficos.html", {
+        'output' : column2D.render()
+    })
 
 # Views do usuário logado
 
