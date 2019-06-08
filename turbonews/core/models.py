@@ -22,19 +22,23 @@ class Carro(models.Model):
 	ano = models.IntegerField('Ano', blank=True, null=True)
 	segmento = models.CharField('Segmento', max_length=50, blank=True, null=True)
 	numVendas = models.IntegerField('numVendas', blank=True, null=True)
-	precoFipe = models.FloatField('PrecoFipe', blank=True, null=True)
+	precoFipeFev = models.FloatField('PrecoFipeFev', blank=True, null=True)
+	precoFipeMar = models.FloatField('PrecoFipeMar', blank=True, null=True)
+	precoFipeAbr = models.FloatField('precoFipeAbr', blank=True, null=True)
+	precoFipeMai = models.FloatField('precoFipeMai', blank=True, null=True)
+	precoFipeJun = models.FloatField('precoFipeJun', blank=True, null=True)
 
 class Opiniao(models.Model):
 
-	def __str__(self):
+	def __int__(self):
 		return self.idCarro
 
-	idCarro = models.IntegerField('idCarro')
-	titulo = models.TextField('Titulo')
-	pros = models.TextField('Pros')
-	contras = models.TextField('Contras')
-	geral = models.TextField('Geral')
+	idCarro = models.ForeignKey(Carro, on_delete=models.CASCADE)
+	opiniao = models.TextField('Titulo', default="dummy")
 
 	# Notas
-	estilo = models.IntegerField('Estilo')
-	acabamento =  models.IntegerField('Acabamento')
+	estilo = models.IntegerField('Estilo', default=0)
+	acabamento = models.IntegerField('Acabamento', default=0)
+	interior = models.IntegerField('Interior', default=0)
+	desempenho = models.IntegerField('Desempenho', default=0)
+	consumo = models.IntegerField('Consumo', default=0)

@@ -18,9 +18,8 @@ class CadastroOpiniao(forms.Form):
 	modelos = [[q.id, q] for q in queryset]
 	notas = [[i, i] for i in range(0, 11)]
 
+	# modelos = []
+	# notas = []
+
 	modelos = forms.CharField(widget=forms.Select(choices=modelos))
-	pau = forms.CharField(widget=forms.Select(choices=notas))
-	titulo = forms.CharField(label="Titulo", widget=forms.Textarea)
-	pros = forms.CharField(label="Pros", widget=forms.Textarea)
-	contras = forms.CharField(label="Contras", widget=forms.Textarea)
-	geral = forms.CharField(label="Geral", widget=forms.Textarea)
+	opiniao = forms.CharField(label="Titulo", widget=forms.Textarea)

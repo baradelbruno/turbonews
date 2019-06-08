@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'mathfilters'}
 
 {% block content %}
 
@@ -21,16 +22,9 @@
 						<li> <strong> Notas </strong> </li>
 						<li> Estilo <span> 10/10 </span> </li>
 						<li> Acabemento <span> 9/10 </span> </li>
-						<li> Instrumentos <span> 9/10 </span> </li>
 						<li> Interior <span> 6/10 </span> </li>
-						<li> Porta-malas <span> 8/10 </span> </li>
 						<li> Desempenho <span> 9/10 </span> </li>
-						<li> Motor <span> 7/10 </span> </li>
-						<li> Câmbio <span> 10/10 </span> </li>
-						<li> Freios <span> 9/10 </span> </li>
-						<li> Suspensão <span> 10/10 </span> </li>
 						<li> Consumo <span> 7/10 </span> </li>
-						<li> Estabilidade <span> 10/10 </span> </li>
 						<li> <strong> Avaliação geral </strong> <span> 8/10</span> </li>
 					</ul>
 				</div>
@@ -43,42 +37,27 @@
 			<!-- Opiniões -->
 			<h3> Opinião do Dono </h3>
 				
-			<section class="container-inline">
-				<div class="box-alt left">
-					<ul class="alt">
-						<li> <strong> Título </strong> </li>
-						<li> bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta </li>
-							
-						<li> <strong> Prós </strong> </li>
-						<li> bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta </li>
-							
-						<li> <strong> Contras </strong> </li>
-						<li> bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta </li>
-							
-						<li> <strong> Opinião geral </strong> </li>
-						<li> bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta  bla bla bla bla me da sua buceta </li>
-					</ul>	
-				</div>
+			{% for carro, media in opinioes %}
 
-				<div class="box-alt right">	
-					<ul class="alt">
-						<li> <strong> Notas </strong> </li>
-						<li> Estilo <span> 10/10 </span> </li>
-						<li> Acabemento <span> 9/10 </span> </li>
-						<li> Instrumentos <span> 9/10 </span> </li>
-						<li> Interior <span> 6/10 </span> </li>
-						<li> Porta-malas <span> 8/10 </span> </li>
-						<li> Desempenho <span> 9/10 </span> </li>
-						<li> Motor <span> 7/10 </span> </li>
-						<li> Câmbio <span> 10/10 </span> </li>
-						<li> Freios <span> 9/10 </span> </li>
-						<li> Suspensão <span> 10/10 </span> </li>
-						<li> Consumo <span> 7/10 </span> </li>
-						<li> Estabilidade <span> 10/10 </span> </li>
-						<li> <strong> Avaliação geral </strong> <span> 8/10</span> </li>
-					</ul>
-				</div>
-			</section>
+				<section class="container-inline">
+					<div class="box-alt left">
+						<p> {{carro.opiniao}} </p>
+					</div>
+
+					<div class="box-alt right">	
+						<ul class="alt">
+							<li> <strong> Notas </strong> </li>
+							<li> Estilo <span> {{carro.estilo}} /10 </span> </li>
+							<li> Acabemento <span> {{carro.acabamento}} /10 </span> </li>
+							<li> Interior <span> {{carro.interior}} /10 </span> </li>
+							<li> Desempenho <span> {{carro.desempenho}}/10 </span> </li>
+							<li> Consumo <span> {{carro.consumo}} /10 </span> </li>
+							<li> <strong> Avaliação geral </strong> <span> {{media}} /10</span> </li>
+						</ul>
+					</div>
+				</section>
+			
+			{% endfor %}
 
 			<div class="container-top-down">
 				<h3> Tem um HB20? </h3>

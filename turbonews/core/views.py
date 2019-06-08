@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from collections import OrderedDict
-from .models import Usuario, Carro
+from .models import Usuario, Carro, Opiniao
 from .forms import CadastroUsuario, CadastroOpiniao
 from .fusioncharts import FusionCharts
 
@@ -48,14 +47,28 @@ def cadastro(request):
 		form = CadastroUsuario()
 
 	context = {
-		"form": form,
+		"form" : form,
 		"formValido" : formValido
 	}
 
 	return render(request, templateName, context)
 
 def elements(request):
-	return render(request, "elements.html")
+
+	opinioes = Opiniao.objects.all()
+	medias = []
+
+	for carro in opinioes:
+		medias.append((carro.estilo + carro.acabamento + carro.interior + carro.desempenho
+					+ carro.consumo) / 5)
+
+	lista = zip(opinioes, medias)
+
+	context = {
+		"opinioes" : lista
+	}
+
+	return render(request, "elements.html", context)
 
 def fichaTecnica(request):
 	return render(request, "ficha-tecnica.html")
@@ -82,11 +95,6 @@ def cadastroOpiniao(request):
 
 	if request.method == 'POST':
 		form = CadastroOpiniao(request.POST)
-		pau = request.POST['modelos']
-		penis = request.POST['notas']
-
-		print(pau)
-		print(penis) 
 
 	else:
 		form = CadastroOpiniao()
@@ -99,7 +107,7 @@ def cadastroOpiniao(request):
 
 def graficos(request):
     
-    pau = Carro.objects.filter(modelo="HB20")
+    carro = Carro.objects.filter(modelo="HB20")
     
     dataSource = {
       "chart": {
@@ -111,46 +119,29 @@ def graficos(request):
 
       "data": [
         {
-          "label": "Mai/2019",
-          "value": pau[0].precoFipe
+          "label": "FEV/2019",
+          "value": carro[0].precoFipeFev
         },
         {
-          "label": "Saudi",
-          "value": "260"
+          "label": "MAR/2019",
+          "value": carro[0].precoFipeMar
         },
         {
-          "label": "Canada",
-          "value": "180"
+          "label": "ABR/2019",
+          "value": carro[0].precoFipeAbr
         },
         {
-          "label": "Iran",
-          "value": "140"
+          "label": "MAI/2019",
+          "value": carro[0].precoFipeMai
         },
         {
-          "label": "Russia",
-          "value": "115"
-        },
-        {
-          "label": "UAE",
-          "value": "100"
-        },
-        {
-          "label": "US",
-          "value": "30"
-        },
-        {
-          "label": "China",
-          "value": "30"
+          "label": "JUN/2019",
+          "value": carro[0].precoFipeJun
         }
       ]
     }
 
-
-
-    # Create an object for the column 2D chart using the FusionCharts class constructor
-    # The chart data is passed to the `dataSource` parameter.
     column2D = FusionCharts("column2d", "myFirstChart", "600", "400", "myFirstchart-container", "json", dataSource)
-
 
     return render(request, "graficos.html", {
         'output' : column2D.render()
