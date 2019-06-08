@@ -1,29 +1,7 @@
-<html>
-	<head>
-		<title>TURBO NEWS</title>
-         <link rel="shortcut icon" href="images/tn.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+{% extends 'base.html' %}
 
-	<header id="header">
-		<div class="inner">
-			<a href="index.html" class="logo">Turbo News</a>
-			<nav id="nav">
-				<a href="{% url 'ficha-tecnica' %}">Ficha Técnica</a>
-				<a href="{% url 'elements' %}">Opinião do Dono</a>
-                <a href="{% url 'login' %}">Login</a>
-			</nav>
-		</div>
-	</header>
-			
-	<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-
-
-
-            
+{% block content %}
+          
 <tr>
 <td colspan="4" align="left" bgcolor="#ffffff"><font color="darkred" size="5" face="arial"><br>&nbsp;Ficha Técnica: Chevrolet Bolt Premier</font>
 </td>
@@ -120,192 +98,192 @@
 <tr>
 
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Freios ABS</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Airbags frontais</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Airbags laterais</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Airbags de cortina</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alarme antifurto perimétrico</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Câmera traseira para manobras</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Câmeras para visão de 360 graus</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Cintos de três pontos para todos os ocupantes</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Controle de estabilidade</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Controle de tração</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Faróis de xenônio</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Faróis com refletores duplos</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Faróis de neblina</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Limpador e lavador do vidro traseiro</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Luz traseira de neblina</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Repetidores laterais das luzes de direção</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Travamento central das portas</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Luzes de condução diurna</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Desembaçador do vidro traseiro</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">ISOFIX</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alerta de colisão frontal</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alerta de tráfego cruzado traseiro</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Monitoramento da pressão dos pneus</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Assistente de partida em rampa</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Sensores de estacionamento traseiro</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Faróis com regulagem de altura</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alerta de ponto cego</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alerta de mudança de faixa</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Assistente de permanência na faixa</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Frenagem automática de emergência</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Chamada de assistência de emergência</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Assistência na recuperação veicular</font></td>
@@ -320,178 +298,178 @@
 
 
 
-<tr><td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<tr><td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ar-condicionado</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ar-condicionado automático</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><font color="black" size="2" face="arial"><img src="images/verde.gif" title="Equipamento de série"></font></td>
+<td align="right" bgcolor="#ffffff"><font color="black" size="2" face="arial"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série"></font></td>
 <td align="left" bgcolor="#ffffff" valign="center"><font color="black" size="2" face="arial">Zonas de ar-condicionado: 1</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ar quente</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Direção assistida</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Banco do motorista com ajuste de altura</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Apoio de braço para o motorista</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Câmbio automático</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ajuste do volante em altura</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ajuste do volante em profundidade</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Ajuste elétrico dos retrovisores</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Controle automático de velocidade</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Bancos revestidos em couro</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Controle elétrico dos vidros dianteiros</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Controle elétrico dos vidros traseiros</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Faróis com acendimento automático</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Limpador de para-brisa automático</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Rodas de liga leve</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Banco traseiro bipartido</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Banco traseiro rebatível</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Comando interno do porta-malas</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Luz no porta-malas</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Luz no porta-luvas</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Comando interno da tampa do tanque</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Chave presencial</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Alças de segurança no teto</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Retrovisores rebativeis eletricamente</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Recuperação de energia cinética</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Acionamento remoto do motor</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Freio de estacionamento elétrico</font></td>
@@ -506,60 +484,60 @@
 
 
 
-<tr><td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<tr><td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Rádio</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Conexão USB</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Conexão Bluetooth</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Volante multifuncional</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Computador de bordo</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Indicador de temperatura externa</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Espelhamento da tela do celular</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Carregador de celular sem fio</font></td>
 
 </tr><tr>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Serviço de concierge</font></td>
 
-<td align="right" bgcolor="#ffffff"><img src="images/verde.gif" title="Equipamento de série">
+<td align="right" bgcolor="#ffffff"><img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">
 
 </td>
 <td align="left" bgcolor="#ffffff" valign="top"><font color="black" size="2" face="arial">Informação de trânsito em tempo real</font></td>
@@ -574,9 +552,8 @@
 
 <tr>
 <td align="center" colspan="5"><font color="black" size="2" face="arial">
-&nbsp;&nbsp;Legenda: <img src="images/verde.gif" title="Equipamento de série">&nbsp;Equipamento de série&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/amar.gif" align="baseline" title="Equipamento opcional">&nbsp;Equipamento opcional
+&nbsp;&nbsp;Legenda: <img src="{{STATIC_URL}}static/images/verde.gif" title="Equipamento de série">&nbsp;Equipamento de série&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/amar.gif" align="baseline" title="Equipamento opcional">&nbsp;Equipamento opcional
 </font></td>
 </tr>
 
-    </body>
-</html>
+{% endblock %}

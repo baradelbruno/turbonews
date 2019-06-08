@@ -2,45 +2,56 @@
 
 {% block content %}
 
-        <br>
+    <br>
         
-        <div class="container">
+    <div class="container">
         <div class="form-group row">
-        <div class="col-4">
-    <label>Buscar Carros</label>
-    <input class="form-control" type="text">
-  </div>
+            <div class="col-4">
+                <label>Buscar Carros</label>
+                <input class="form-control" type="text">
+            </div>
         </div>
-        </div>
+    </div>
         
 
-        <br>
+    <br>
 
-        <!-- CARRO 1 -->
-   
-      <div class="container p-3" style="border-bottom: solid 1px" color: darkred>    
+    <div class="container p-3" style="border-bottom: solid 1px" color: darkred>    
           <tr>
-              <font size="2" face="arial"><a href="ficha-bolt.html"><img src="images/bolt.jpg" title="Ficha técnica, equipamentos e fotos do Chevrolet Premier" vspace="0" border="0" height="250" width="350"></a></font>
-              <td bgcolor="#ffffff" align="left">   
-                  <font size="2" face="arial"><a href="ficha-bolt.html" title="Chevrolet Bolt Premier">
-                  <font class="ml-4" size="5" color="gray"><b>Chevrolet
-                  <font size="5" color="darkred">Bolt Premier
-                  </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
-                  </font>
-                  <font size="5" color="gray">2019</font>
-                  <font size="5" color="darkblue"><b>0 km</b></font>
-              </font></font></font></td>  
-          </tr>      
-      </div>
+            <font size="2" face="arial"><a href="{% url 'ficha-bolt' %}"><img src="{{STATIC_URL}}static/images/bolt.jpg" title="Ficha técnica, equipamentos e fotos do Chevrolet Premier" vspace="0" border="0" height="250" width="350"></a></font>
+              
+            <td bgcolor="#ffffff" align="left">   
+                <font size="2" face="arial">
+                    <a href="{% url 'ficha-bolt' %}" title="Chevrolet Bolt Premier">
+                        <font class="ml-4" size="5" color="gray">  <b> Chevrolet
+                            <font size="5" color="darkred">Bolt Premier </font>
+                        </b>
+                        </font>
+                    </a>
+
+                    <font size="2" color="gray">
+                        <font size="3" color="darkred">
+                            <font size="2" color="gray"></font>
+                            <font size="5" color="gray">2019 </font>
+                            <font size="5" color="darkblue"> <b>0 km</b> </font>
+                        </font>
+                    </font>
+                </font>
+            </td>  
+        </tr>      
+    </div>
 
       <!-- CARRO 2 -->
 
       <div class="container p-3" style="border-bottom: solid 1px">
           <tr>
               <td bgcolor="#ffffff" align="center">
-              <font size="2" face="arial"><a href="ficha-volvo.html"><img src="images/volvo-s90.jpg" title="Ficha técnica, equipamentos e fotos do Volvo Inscription T8 2.0" vspace="0" border="0" height="250" width="350"></a></font></td>
+              <font size="2" face="arial"><a href="{% url 'ficha-volvo'%}">
+                <img src="{{STATIC_URL}}static/images/volvo-s90.jpg" title="Ficha técnica, equipamentos e fotos do Volvo Inscription T8 2.0" vspace="0" border="0" height="250" width="350"></a>
+              </font>
+              </td>
               <td bgcolor="#ffffff" align="left"> 
-                  <font size="2" face="arial"><a href="ficha-volvo.html" title="Volvo Inscription T8 2.0">
+                  <font size="2" face="arial"><a href="{% url 'ficha-volvo'%}" title="Volvo Inscription T8 2.0">
                   <font class="ml-4" size="5" color="gray"><b>Volvo
                   <font size="5" color="darkred">S90 Inscription T8 2.0
                   </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
@@ -57,9 +68,9 @@
       <div class="container p-3" style="border-bottom: solid 1px">
         <tr>
           <td bgcolor="#ffffff" align="center">
-          <font size="2" face="arial"><a href="ficha-leaf.html"><img src="images/leaf.jpg" title="Ficha técnica, equipamentos e fotos do Nissan Leaf ZE" vspace="0" border="0" height="250" width="350"></a></font></td>
+          <font size="2" face="arial"><a href="{% url 'ficha-leaf'%}"><img src="{{STATIC_URL}}static/images/leaf.jpg" title="Ficha técnica, equipamentos e fotos do Nissan Leaf ZE" vspace="0" border="0" height="250" width="350"></a></font></td>
           <td bgcolor="#ffffff" align="left"> 
-              <font size="2" face="arial"><a href="ficha-leaf.html" title="Nissan Leaf ZE">
+              <font size="2" face="arial"><a href="{% url 'ficha-leaf'%}" title="Nissan Leaf ZE">
               <font class="ml-4" size="5" color="gray"><b>Nissan
               <font size="5" color="darkred">Leaf ZE
               </font></b></font></a><font size="2" color="gray"><font size="3" color="darkred"><font size="2" color="gray">
