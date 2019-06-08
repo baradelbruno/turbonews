@@ -53,8 +53,10 @@ def cadastro(request):
 
 	return render(request, templateName, context)
 
-def elements(request):
+def elements(request, carro_pk):
 
+	car = Carro.objects.filter(pk=carro_pk)
+	print(car[0])
 	opinioes = Opiniao.objects.all()
 	medias = []
 
@@ -92,15 +94,33 @@ def noticiaHrv(request):
 	return render(request, "noticia-hrv.html")
 
 def cadastroOpiniao(request):
+	formValido = False
 
 	if request.method == 'POST':
 		form = CadastroOpiniao(request.POST)
+
+		if form.is_valid():
+			formValido = True
+			novaOpiniao = Opiniao()
+			carro = Carro.objects.filter(id=form.cleaned_data['modelos'])
+			
+			novaOpiniao.idCarro = carro[0]
+			novaOpiniao.opiniao = form.cleaned_data['opiniao']
+			novaOpiniao.estilo = form.cleaned_data['estilo']
+			novaOpiniao.acabamento = form.cleaned_data['acabamento']
+			novaOpiniao.interior = form.cleaned_data['interior']
+			novaOpiniao.desempenho = form.cleaned_data['desempenho']
+			novaOpiniao.consumo = form.cleaned_data['consumo']
+			novaOpiniao.save()
+			
+			form = CadastroOpiniao()
 
 	else:
 		form = CadastroOpiniao()
 
 	context = {
-		"form" : form
+		"form" : form,
+		"formValido" : formValido
 	}
 
 	return render(request, "cadastro-opiniao.html", context)
