@@ -1,36 +1,6 @@
-<!DOCTYPE HTML>
-<!--
-	Introspect by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>TURBO NEWS</title>
-         <link rel="shortcut icon" href="images/tn.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+{% extends 'logado/base-log.html' %}
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index-log.html" class="logo">Turbo News</a>
-					<nav id="nav">
-						<a href="ficha-tecnica-log.html">Ficha Técnica</a>
-						<a href="elements-log.html">Opinião do Dono</a>
-                        <div class="dropdown">
-                          <a class="dropbtn">Bem-vindo</a>
-                          <div class="dropdown-content">
-                            <a href="index.html">Logout</a>
-                          </div>
-                        </div> 
-					</nav>
-				</div>
-			</header>
-			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+{% block content %}
         
 		<!-- Main -->
 			<section id="main" >
@@ -39,11 +9,11 @@
 						<h1>NOVO HONDA HR-V TOURING</h1>
 						<p>O SUV compacto vem equipado com motor 1.5 Turbo e teto solar.</p>
 					</header>
-					<a href="#" class="image fit"><img src="images/hrv-noticia.jpg" alt="" /></a>
+					<a class="image fit"><img src="{{STATIC_URL}}static/images/hrv-noticia.jpg" alt="" /></a>
 					<p>O HR-V é o sétimo carro mais comprado do mundo. Feito com base na plataforma estendida do Fit, o SUV do segmento B concorre com modelos como o Jeep Renegade e Nissan Kicks, tendo a seu favor argumentos bem racionais, como o espaço generoso, os 448 litros de capacidade do porta-malas e a versatilidade, com o famoso banco traseiro “mágico” que permite erguer o assento na vertical e colocar lá objetos bem altos.</p>
 					<p>Esse posicionamento racional tem sido o segredo do sucesso de um modelo que, na primeira geração estava tão à frente da concorrência que ninguém sabia como o classificar. Seria uma perua alta ou um crossover baixo? Seja como for, sempre teve a dinâmica ao seu favor. Só faltava um pouco mais de pimenta, por mais que o casamento entre o 1.8 e o CVT seja dos mais felizes.</p>
 					<p>Eis que entra o motor 1.5 turbo do Civic Touring. Confirmada no Salão de São Paulo, a configuração vai repetir o sobrenome Touring adotado pelo antigo modelo top de linha, mas o lançamento no Brasil será apenas em meados desse ano, por volta de julho. O preço vai ficar bem acima dos R$ 108.500 cobrados pelo EXL atual, mas esperamos que não chegue tão perto dos R$ 128.500 cobrados pelo Civic Touring.</p>
-                    <a href="#" class="image fit"><img src="images/hrv-noticia2.jpg" alt="" /></a>
+                    <a class="image fit"><img src="{{STATIC_URL}}static/images/hrv-noticia2.jpg" alt="" /></a>
                     <p>O propulsor de quatro cilindros entrega 182 cv e 24,5 kgfm de torque, números bem superiores aos 139/140 cv (etanol e gasolina) e 17,4/17,3 kgfm a partir de 4.800 rpm (5.000 rpm com gasolina). Na Europa, a motorização foi associada ao nome Sport, com estilo mais arrojado e câmbio manual de seis marchas, que não será adotado no HR-V nacional.</p>
 				</div>
 			</section>
@@ -54,5 +24,4 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
-</html>
+{% endblock%}
