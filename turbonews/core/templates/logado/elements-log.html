@@ -1,32 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title> Opinião do dono - TURBO NEWS </title>
-		<link rel="shortcut icon" href="images/tn.png" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css"/>
-	</head>
-	
-	<body>
+{% extends 'logado/base-log.html' %}
 
-	<!-- Header -->
-	<header id="header">
-		<div class="inner">
-			<a href="index-log.html" class="logo">Turbo News</a>
-			<nav id="nav">
-				<a href="ficha-tecnica-log.html">Ficha Técnica</a>
-				<a href="elements-log.html">Opinião do Dono</a>
-                <div class="dropdown">
-                          <a class="dropbtn">Bem-vindo</a>
-                          <div class="dropdown-content">
-                            <a href="index.html">Logout</a>
-                          </div>
-                        </div> 
-			</nav>
-		</div>
-	</header>
-		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+{% block content %}
 
 		<!-- Main -->
 	<section id="main">
@@ -63,7 +37,7 @@
 				</div>
 				
 				<div class="image auto"> 
-					<img src="images/hb20-donos.jpg" width="720px" height="550px">
+					<img src="{{STATIC_URL}}static/images/hb20-donos.jpg" width="720px" height="550px">
 				</div>
 			</section>
 		
@@ -110,7 +84,7 @@
 			<div class="container-top-down">
 				<h3> Tem um HB20? </h3>
 				<ul class="actions">
-					<li><a href="noticia-hrv.html" class="button alt"> Dê sua opinião </a></li>
+					<li><a href="{% url '.html'}" class="button alt"> Dê sua opinião </a></li>
 				</ul>
 			</div>
 
@@ -123,5 +97,4 @@
 		</div>
 	</section>
 	
-	</body>
-</html>
+{% endblock %}
