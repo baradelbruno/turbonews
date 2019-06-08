@@ -53,11 +53,13 @@ def cadastro(request):
 
 	return render(request, templateName, context)
 
-def elements(request, carro_pk):
+def elements(request):
 
-	car = Carro.objects.filter(pk=carro_pk)
-	print(car[0])
-	opinioes = Opiniao.objects.all()
+	return elements_details(request, 1)
+
+def elements_details(request, carro_pk):
+	carroEscolhido = Carro.objects.filter(pk=carro_pk)
+	opinioes = Opiniao.objects.filter(idCarro=carroEscolhido[0])
 	medias = []
 
 	for carro in opinioes:
@@ -67,7 +69,10 @@ def elements(request, carro_pk):
 	lista = zip(opinioes, medias)
 
 	context = {
-		"opinioes" : lista
+		"carros" : Carro.objects.all(),
+		"opinioes" : lista,
+		"marca" : carroEscolhido[0].marca,
+		"modelo" : carroEscolhido[0].modelo
 	}
 
 	return render(request, "elements.html", context)
