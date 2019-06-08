@@ -2113,7 +2113,7 @@
 		border: none;
 		border: solid 1px;
 		color: inherit;
-		display: block;
+		display: inline;
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
@@ -3988,6 +3988,7 @@
 		}
 
 		.banner-ft{
+            padding: 0;
             max-width:100%;
             height:auto;
         }
@@ -4030,3 +4031,10 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.ficha {
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    border: 1px solid black;
+}
