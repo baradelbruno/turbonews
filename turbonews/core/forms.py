@@ -23,3 +23,8 @@ class CadastroOpiniao(forms.Form):
 
 	modelos = forms.CharField(widget=forms.Select(choices=modelos))
 	opiniao = forms.CharField(label="Titulo", widget=forms.Textarea)
+	estilo = forms.CharField(widget=forms.Select(choices=notas))
+	acabamento = forms.CharField(widget=forms.Select(choices=notas))
+	interior = forms.CharField(widget=forms.Select(choices=notas))
+	desempenho = forms.CharField(widget=forms.Select(choices=notas))
+	consumo = forms.CharField(widget=forms.Select(choices=notas))

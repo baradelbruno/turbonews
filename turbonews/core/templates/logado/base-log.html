@@ -17,6 +17,7 @@
 				<nav id="nav">
 					<a href="{% url 'ficha-tecnica-log' %}"> Ficha Técnica </a>
 					<a href="{% url 'elements-log' %}"> Opinião do Dono </a>
+					<a href="{% url 'graficos' %}"> Estatísticas </a>
 	                
 	                <div class="dropdown">
 	                    <a class="dropbtn">Bem-vindo </a>	                    
@@ -28,7 +29,7 @@
 			</div>
 		</header>
 		
-		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		{# <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a> #}
 
 		{% block content %} 
 			{# Conteúdo da página vem aqui #}

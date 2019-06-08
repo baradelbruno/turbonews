@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% import 'mathfilters'}
 
 {% block content %}
 
@@ -8,7 +7,7 @@
 			
 			<h3> Escolha outro carro </h3>
 			<select onchange="location = this.value;" style="width: 25%;">
-			    <option value="{% url 'home' %}"> Volvo </option>
+			    <option value="{% url 'elements' %}"> Volvo </option>
 			    <option value="{% url 'home' %}"> Saab </option>
 			    <option value="{% url 'home' %}"> Opel </option>
 			    <option value="{% url 'home' %}"> Audi </option>
