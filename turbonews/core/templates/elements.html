@@ -7,13 +7,13 @@
 			
 			<h3> Escolha outro carro </h3>
 			<select onchange="location = this.value;" style="width: 25%;">
-			    <option value="{% url 'elements' %}"> Volvo </option>
-			    <option value="{% url 'home' %}"> Saab </option>
-			    <option value="{% url 'home' %}"> Opel </option>
-			    <option value="{% url 'home' %}"> Audi </option>
+					<option> -------- </option>
+				{% for carros in carros %}
+				    <option value="{% url 'elements_details' carros.pk %}"> {{carros.modelo}} </option>
+				{% endfor %}
 			</select>
 
-			<h1 class="align-center"> Hyundai HB20 </h1>
+			<h1 class="align-center"> {{marca}} {{modelo}} </h1>
 				
 			<section class="container-inline">
 				<div class="box-alt right">
@@ -59,7 +59,7 @@
 			{% endfor %}
 
 			<div class="container-top-down">
-				<h3> Tem um HB20? </h3>
+				<h3> Tem um {{modelo}}? </h3>
 				<ul class="actions">
 					<li><a href="{% url 'cadastro-opiniao' %}" class="button alt"> Dê sua opinião </a></li>
 				</ul>
