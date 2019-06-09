@@ -18,7 +18,13 @@
 				<nav id="nav">
 					<a href="{% url 'ficha-tecnica' %}"> Ficha Técnica </a>
 					<a href="{% url 'elements' %}"> Opinião do Dono </a>
-					<a href="{% url 'graficos' %}"> Estatísticas </a>
+					<div class="dropdown-estat">
+	                    <a class="dropbtn-estat">Estatísticas </a>	                    
+	                    <div class="dropdown-content-estat">
+	                        <a href="{% url 'home' %}">Tabela FIPE </a>
+                            <a href="{% url 'home' %}">Vendas</a>
+	                    </div>
+	                </div> 
                     <a href="{% url 'login' %}"> Login </a>
 				</nav>
 			</div>
