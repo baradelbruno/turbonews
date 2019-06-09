@@ -2,16 +2,10 @@
 
 {% block content %}
 
-	<form method="POST" target="{% url 'home-log'%}>
-	{% csrf_token %}
-	
-		<label>Buscar Carros</label>
-		<input class="form-control" name="filtro" type="text">
-		{# <button type="submit" name="button" class="button">Buscar</button> #}
-		<input type="submit" name="button">
+	<label>Buscar Carros</label>
+	<input class="form-control" id="filtro" type="text">
+	<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
 
-	</form>
-
-	<div id="grafico-container">{{ output|safe }}</div>
+	<div id="grafico-container"> </div>
 
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Usuario, Carro, Opiniao
 from .forms import CadastroUsuario, CadastroOpiniao
 from .fusioncharts import FusionCharts
@@ -130,55 +131,34 @@ def cadastroOpiniao(request):
 
 	return render(request, "cadastro-opiniao.html", context)
 
+@csrf_exempt
 def graficos(request):
         
-    if request.method == 'POST':
-    	modelo = request.POST['filtro']
-    	print(modelo)
+	if request.is_ajax():
+		modelo = request.POST['modelo']
+		carro = Carro.objects.filter(modelo=modelo)
 
-    	carro = Carro.objects.filter(modelo=modelo)
+		precos = [carro[0].precoFipeFev, carro[0].precoFipeMar, carro[0].precoFipeAbr,
+				  carro[0].precoFipeMai, carro[0].precoFipeJun]
 
-    	dataSource = {
-	      "chart": {
-	        "caption": "Tabela FIPE",
-	        "xAxisName": "Data",
-	        "yAxisName": "Preço",
-	        "theme": "fusion"
-	      },
+		return JsonResponse({'result' : 'success', 'precos': precos})
 
-	      "data": [
-	        {
-	          "label": "FEV/2019",
-	          "value": carro[0].precoFipeFev
-	        },
-	        {
-	          "label": "MAR/2019",
-	          "value": carro[0].precoFipeMar
-	        },
-	        {
-	          "label": "ABR/2019",
-	          "value": carro[0].precoFipeAbr
-	        },
-	        {
-	          "label": "MAI/2019",
-	          "value": carro[0].precoFipeMai
-	        },
-	        {
-	          "label": "JUN/2019",
-	          "value": carro[0].precoFipeJun
-	        }]
-	    }
+	return render(request, "graficos.html")
 
-    	graficoPreco = FusionCharts("line", "graficoPreco", "600", "400", "grafico-container", "json", dataSource)
+def graficoVendas(request):
 
-    	return render(request, "graficos.html", {
-        	'output' : graficoPreco.render(),
-    	})
+	if request.is_ajax():
+		modelo = request.POST['modelo']
+		carro = Carro.objects.filter(modelo=modelo)
 
-    return render(request, "graficos.html")
+		precos = [carro[0].precoFipeFev, carro[0].precoFipeMar, carro[0].precoFipeAbr,
+				  carro[0].precoFipeMai, carro[0].precoFipeJun]
+
+		return JsonResponse({'result' : 'success', 'precos': precos})
+
+	return render(request, "graficos.html")
 
 # Views do usuário logado
-
 def homeLog(request):
 	return render(request, "logado/index-log.html")
 
