@@ -131,46 +131,51 @@ def cadastroOpiniao(request):
 	return render(request, "cadastro-opiniao.html", context)
 
 def graficos(request):
-    
-    carro = Carro.objects.filter(modelo="HB20")
-    
-    dataSource = {
-      "chart": {
-        "caption": "Tabela FIPE",
-        "xAxisName": "Data",
-        "yAxisName": "Preço",
-        "theme": "fusion"
-      },
+        
+    if request.method == 'POST':
+    	modelo = request.POST['filtro']
+    	print(modelo)
 
-      "data": [
-        {
-          "label": "FEV/2019",
-          "value": carro[0].precoFipeFev
-        },
-        {
-          "label": "MAR/2019",
-          "value": carro[0].precoFipeMar
-        },
-        {
-          "label": "ABR/2019",
-          "value": carro[0].precoFipeAbr
-        },
-        {
-          "label": "MAI/2019",
-          "value": carro[0].precoFipeMai
-        },
-        {
-          "label": "JUN/2019",
-          "value": carro[0].precoFipeJun
-        }
-      ]
-    }
+    	carro = Carro.objects.filter(modelo=modelo)
 
-    column2D = FusionCharts("column2d", "myFirstChart", "600", "400", "myFirstchart-container", "json", dataSource)
+    	dataSource = {
+	      "chart": {
+	        "caption": "Tabela FIPE",
+	        "xAxisName": "Data",
+	        "yAxisName": "Preço",
+	        "theme": "fusion"
+	      },
 
-    return render(request, "graficos.html", {
-        'output' : column2D.render()
-    })
+	      "data": [
+	        {
+	          "label": "FEV/2019",
+	          "value": carro[0].precoFipeFev
+	        },
+	        {
+	          "label": "MAR/2019",
+	          "value": carro[0].precoFipeMar
+	        },
+	        {
+	          "label": "ABR/2019",
+	          "value": carro[0].precoFipeAbr
+	        },
+	        {
+	          "label": "MAI/2019",
+	          "value": carro[0].precoFipeMai
+	        },
+	        {
+	          "label": "JUN/2019",
+	          "value": carro[0].precoFipeJun
+	        }]
+	    }
+
+    	graficoPreco = FusionCharts("line", "graficoPreco", "600", "400", "grafico-container", "json", dataSource)
+
+    	return render(request, "graficos.html", {
+        	'output' : graficoPreco.render(),
+    	})
+
+    return render(request, "graficos.html")
 
 # Views do usuário logado
 

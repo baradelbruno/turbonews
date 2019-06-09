@@ -2,7 +2,16 @@
 
 {% block content %}
 
-<div id="myFirstchart-container">{{ output|safe }}</div>
+	<form method="POST" target="{% url 'home-log'%}>
+	{% csrf_token %}
+	
+		<label>Buscar Carros</label>
+		<input class="form-control" name="filtro" type="text">
+		{# <button type="submit" name="button" class="button">Buscar</button> #}
+		<input type="submit" name="button">
 
+	</form>
 
-{% endblock%}
+	<div id="grafico-container">{{ output|safe }}</div>
+
+{% endblock %}
