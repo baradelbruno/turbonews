@@ -31,15 +31,12 @@
 		</header>
 	
 		<a href="#menu" class="navPanelToggle"> <span class="fa fa-bars"></span></a>
+		<script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %} "></script>
+		<script type="text/javascript" src="{% static 'assets/js/main.js' %} "></script>
 
 		{% block content %} 
 			{# Conteúdo da página vem aqui #}
 		{% endblock %} 
-
-	<script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %} "></script>
-	<script type="text/javascript" src="{% static 'assets/js/main.js' %} "></script>
-	{# <script src="assets/js/skel.min.js"></script> #}
-	{# <script src="assets/js/util.js"></script> #}
-
+		
 	</body>
 </html>

@@ -73,13 +73,58 @@ def elements_details(request, carro_pk):
 		"carros" : Carro.objects.all(),
 		"opinioes" : lista,
 		"marca" : carroEscolhido[0].marca,
-		"modelo" : carroEscolhido[0].modelo
+		"modelo" : carroEscolhido[0].modelo,
+		"imagem" : carroEscolhido[0].imagem
 	}
 
 	return render(request, "elements.html", context)
 
 def fichaTecnica(request):
-	return render(request, "ficha-tecnica.html")
+
+	carros = [Carro.objects.get(modelo="Bolt"), 
+			  Carro.objects.get(modelo="S90 Inscription"),
+			  Carro.objects.get(modelo="Leaf")]
+
+	context = {
+		"carros" : carros,
+		"bolt" : True,
+		"s90" : True,
+		"leaf" : True
+	}
+
+	print(context)
+
+	return render(request, "ficha-tecnica.html", context)
+
+def fichaTecnica_details(request, carro_pk):
+
+	bolt = False
+	s90 = False
+	leaf = False
+
+	carros = [Carro.objects.get(modelo="Bolt"), 
+			  Carro.objects.get(modelo="S90 Inscription"),
+			  Carro.objects.get(modelo="Leaf")]
+
+	if carro_pk == 5:
+		bolt = True
+
+	elif carro_pk == 6:
+		s90 = True
+
+	elif carro_pk == 7:
+		leaf = True
+
+	context = {
+		"carros" : carros,
+		"bolt" : bolt,
+		"s90" : s90,
+		"leaf" : leaf
+	}
+
+	print(context)
+
+	return render(request, "ficha-tecnica.html", context)
 
 def fichaBolt(request):
 	return render(request, "ficha-bolt.html")
@@ -151,10 +196,9 @@ def graficoVendas(request):
 		modelo = request.POST['modelo']
 		carro = Carro.objects.filter(modelo=modelo)
 
-		precos = [carro[0].precoFipeFev, carro[0].precoFipeMar, carro[0].precoFipeAbr,
-				  carro[0].precoFipeMai, carro[0].precoFipeJun]
+		vendas = []
 
-		return JsonResponse({'result' : 'success', 'precos': precos})
+		return JsonResponse({'result' : 'success', 'vendas': vendas})
 
 	return render(request, "graficos.html")
 

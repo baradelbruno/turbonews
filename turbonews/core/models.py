@@ -22,6 +22,7 @@ class Carro(models.Model):
 	ano = models.IntegerField('Ano', blank=True, null=True)
 	segmento = models.CharField('Segmento', max_length=50, blank=True, null=True)
 	numVendas = models.IntegerField('numVendas', blank=True, null=True)
+	imagem = models.ImageField(upload_to="", blank=True, null=True)
 	precoFipeFev = models.FloatField('PrecoFipeFev', blank=True, null=True)
 	precoFipeMar = models.FloatField('PrecoFipeMar', blank=True, null=True)
 	precoFipeAbr = models.FloatField('precoFipeAbr', blank=True, null=True)

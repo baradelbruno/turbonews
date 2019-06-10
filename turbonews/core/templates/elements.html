@@ -7,7 +7,7 @@
 			
 			<h3> Escolha outro carro </h3>
 			<select onchange="location = this.value;" style="width: 25%;">
-					<option> -------- </option>
+				<option> -------- </option>
 				{% for carros in carros %}
 				    <option value="{% url 'elements_details' carros.pk %}"> {{carros.modelo}} </option>
 				{% endfor %}
@@ -29,7 +29,7 @@
 				</div>
 				
 				<div class="image auto"> 
-					<img src="{{STATIC_URL}}static/images/hb20-donos.jpg" width="720px" height="480px">
+					<img src=" {{ imagem.url }} " width="720px" height="480px">
 				</div>
 			</section>
 		

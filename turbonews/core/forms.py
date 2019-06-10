@@ -14,12 +14,12 @@ class CadastroUsuario(forms.Form):
 
 class CadastroOpiniao(forms.Form):
 
-	queryset = Carro.objects.all()
-	modelos = [[q.id, q] for q in queryset]
-	notas = [[i, i] for i in range(0, 11)]
+	# queryset = Carro.objects.all()
+	# modelos = [[q.id, q] for q in queryset]
+	# notas = [[i, i] for i in range(0, 11)]
 
-	# modelos = []
-	# notas = []
+	modelos = []
+	notas = []
 
 	modelos = forms.CharField(widget=forms.Select(choices=modelos))
 	opiniao = forms.CharField(label="Titulo", widget=forms.Textarea)
