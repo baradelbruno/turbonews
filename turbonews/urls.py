@@ -40,7 +40,6 @@ urlpatterns = [
     path('cadastro-opiniao', views.cadastroOpiniao, name="cadastro-opiniao"),
     path('graficos', views.graficos, name="graficos"),
     path('grafico-vendas', views.graficoVendas, name="grafico-vendas"),
-    # path('update', views.update, name="update"),
     
     path('log', views.homeLog, name="home-log"),
     path('elements-log', views.elementsLog, name="elements-log"),
