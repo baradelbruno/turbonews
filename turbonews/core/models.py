@@ -31,10 +31,10 @@ class Carro(models.Model):
 
 class Opiniao(models.Model):
 
-	def __int__(self):
-		return self.idCarro
+	def __Carro__(self):
+		return self.carro
 
-	idCarro = models.ForeignKey(Carro, on_delete=models.CASCADE)
+	carro = models.ForeignKey(Carro, on_delete=models.CASCADE)
 	opiniao = models.TextField('Titulo', default="dummy")
 
 	# Notas
@@ -43,3 +43,11 @@ class Opiniao(models.Model):
 	interior = models.IntegerField('Interior', default=0)
 	desempenho = models.IntegerField('Desempenho', default=0)
 	consumo = models.IntegerField('Consumo', default=0)
+
+class Comentario(models.Model):
+
+	def __Usuario__(self):
+		return self.usuario
+
+	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+	comentario = models.TextField('Comentario', default="dummy")

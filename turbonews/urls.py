@@ -38,7 +38,7 @@ urlpatterns = [
     path('noticia-gti', views.noticiaGti, name="noticia-gti"),
     path('noticia-hrv', views.noticiaHrv, name="noticia-hrv"),  
     path('cadastro-opiniao', views.cadastroOpiniao, name="cadastro-opiniao"),
-    path('graficos', views.graficos, name="graficos"),
+    path('grafico-preco', views.graficoPreco, name="grafico-preco"),
     path('grafico-vendas', views.graficoVendas, name="grafico-vendas"),
     
     path('log', views.homeLog, name="home-log"),

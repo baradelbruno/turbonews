@@ -1,19 +1,20 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Usuario, Carro, Opiniao
+from .models import Usuario, Carro, Opiniao, Comentario
 from .forms import CadastroUsuario, CadastroOpiniao
 from .fusioncharts import FusionCharts
 
 def home(request):
-	return render(request, "index.html")
+
+	return render(request, "index.html", {"logado" : True})
 
 def login(request):
 	loginInvalido = False
 
 	if request.method == "POST":
-		username = request.POST['username'] # form.cleaned_data['username']?
-		senha = request.POST['senha']       # form.cleaned_data['senha']?
+		username = form.cleaned_data['username']
+		senha = form.cleaned_data['senha']
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
 			return redirect('/log')
@@ -25,7 +26,6 @@ def login(request):
 		"loginInvalido" : loginInvalido
 	}
 
-	print(loginInvalido)
 	return render(request, "login.html", context)
 
 def cadastro(request):
@@ -59,8 +59,8 @@ def elements(request):
 	return elements_details(request, 1)
 
 def elements_details(request, carro_pk):
-	carroEscolhido = Carro.objects.filter(pk=carro_pk)
-	opinioes = Opiniao.objects.filter(idCarro=carroEscolhido[0])
+	carroEscolhido = get_object_or_404(Carro, pk=carro_pk)
+	opinioes = Opiniao.objects.filter(carro=carroEscolhido)
 	medias = []
 
 	for carro in opinioes:
@@ -72,9 +72,9 @@ def elements_details(request, carro_pk):
 	context = {
 		"carros" : Carro.objects.all(),
 		"opinioes" : lista,
-		"marca" : carroEscolhido[0].marca,
-		"modelo" : carroEscolhido[0].modelo,
-		"imagem" : carroEscolhido[0].imagem
+		"marca" : carroEscolhido.marca,
+		"modelo" : carroEscolhido.modelo,
+		"imagem" : carroEscolhido.imagem
 	}
 
 	return render(request, "elements.html", context)
@@ -87,12 +87,13 @@ def fichaTecnica(request):
 
 	context = {
 		"carros" : carros,
+		"imagemBolt" : carros[0].imagem,
+		"imagemS90" : carros[1].imagem,
+		"imagemLeaf" : carros[2].imagem,
 		"bolt" : True,
 		"s90" : True,
 		"leaf" : True
 	}
-
-	print(context)
 
 	return render(request, "ficha-tecnica.html", context)
 
@@ -117,12 +118,13 @@ def fichaTecnica_details(request, carro_pk):
 
 	context = {
 		"carros" : carros,
+		"imagemBolt" : carros[0].imagem,
+		"imagemS90" : carros[1].imagem,
+		"imagemLeaf" : carros[2].imagem,
 		"bolt" : bolt,
 		"s90" : s90,
 		"leaf" : leaf
 	}
-
-	print(context)
 
 	return render(request, "ficha-tecnica.html", context)
 
@@ -136,13 +138,31 @@ def fichaVolvo(request):
 	return render(request, "ficha-volvo.html")
 
 def noticiaCorolla(request):
-	return render(request, "noticia-corolla.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : comentarios
+	}
+
+	return render(request, "noticia-corolla.html", context)
 
 def noticiaGti(request):
-	return render(request, "noticia-gti.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : comentarios
+	}
+
+	return render(request, "noticia-gti.html", context)
 
 def noticiaHrv(request):
-	return render(request, "noticia-hrv.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : comentarios
+	}
+
+	return render(request, "noticia-hrv.html", context)
 
 def cadastroOpiniao(request):
 	formValido = False
@@ -153,9 +173,8 @@ def cadastroOpiniao(request):
 		if form.is_valid():
 			formValido = True
 			novaOpiniao = Opiniao()
-			carro = Carro.objects.filter(id=form.cleaned_data['modelos'])
 			
-			novaOpiniao.idCarro = carro[0]
+			novaOpiniao.carro = Carro.objects.get(id=form.cleaned_data['modelos'])
 			novaOpiniao.opiniao = form.cleaned_data['opiniao']
 			novaOpiniao.estilo = form.cleaned_data['estilo']
 			novaOpiniao.acabamento = form.cleaned_data['acabamento']
@@ -177,30 +196,33 @@ def cadastroOpiniao(request):
 	return render(request, "cadastro-opiniao.html", context)
 
 @csrf_exempt
-def graficos(request):
+def graficoPreco(request):
         
 	if request.is_ajax():
 		modelo = request.POST['modelo']
-		carro = Carro.objects.filter(modelo=modelo)
+		carro = Carro.objects.get(modelo=modelo)
 
-		precos = [carro[0].precoFipeFev, carro[0].precoFipeMar, carro[0].precoFipeAbr,
-				  carro[0].precoFipeMai, carro[0].precoFipeJun]
+		precos = [carro.precoFipeFev, carro.precoFipeMar, carro.precoFipeAbr,
+				  carro.precoFipeMai, carro.precoFipeJun]
 
 		return JsonResponse({'result' : 'success', 'precos': precos})
 
 	return render(request, "graficos.html")
 
+@csrf_exempt
 def graficoVendas(request):
 
 	if request.is_ajax():
-		modelo = request.POST['modelo']
-		carro = Carro.objects.filter(modelo=modelo)
-
+		segmento = request.POST['segmento']
+		carros = Carro.objects.filter(segmento=segmento)
 		vendas = []
+
+		for c in carros:
+			vendas.append({"label": c.modelo, "value": c.numVendas})
 
 		return JsonResponse({'result' : 'success', 'vendas': vendas})
 
-	return render(request, "graficos.html")
+	return render(request, "grafico-vendas.html")
 
 # Views do usuário logado
 def homeLog(request):
@@ -222,10 +244,28 @@ def fichaVolvoLog(request):
 	return render(request, "logado/ficha-volvo-log.html")
 
 def noticiaCorollaLog(request):
-	return render(request, "logado/noticia-corolla-log.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : lista
+	}
+
+	return render(request, "logado/noticia-corolla-log.html", context)
 
 def noticiaGtiLog(request):
-	return render(request, "logado/noticia-gti-log.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : comentarios
+	}
+
+	return render(request, "logado/noticia-corolla-log.html", context)
 
 def noticiaHrvLog(request):
-	return render(request, "logado/noticia-hrv-log.html")
+	comentarios = Comentario.objects.all()
+
+	context = {
+		"comentarios" : comentarios
+	}
+
+	return render(request, "logado/noticia-corolla-log.html", context)

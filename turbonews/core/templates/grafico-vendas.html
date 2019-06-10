@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<label>Buscar Carros</label>
+	<label> Buscar Segmento </label>
 	<input class="form-control" id="filtro" type="text">
 	<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
 
@@ -12,12 +12,12 @@
 		$(document).ready(function(){
 			$("#updateButton").on("click", function(){
 
-				var modelo = $("#filtro").val();
+				var segmento = $("#filtro").val();
 
 				req = $.ajax({
-					url : "/graficosVendas",
+					url : "/grafico-vendas",
 					type : "POST",
-					data : {modelo : modelo}
+					data : {segmento : segmento}
 				});
 
 				req.done(function(data){
@@ -35,27 +35,7 @@
 							        theme: "fusion"
 					            },
 					            
-					            data:[
-					            {
-					                label: "Fevereiro",
-					                value: data['precos'][0]
-					            },
-					            {
-					                label: "Março",
-					                value: data['precos'][1]
-					            },
-					            {
-					                label: "Abril",
-					                value: data['precos'][2]
-					            },
-					            {
-					                label: "Maio",
-					                value: data['precos'][3]
-					            },
-					            {
-					                label: "Junho",
-					                value: data['precos'][4]
-					            }]
+					            data: data['vendas']
 					        }
 					    });
 
