@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block usuario %}
+
+	{% if logado %}
+		<div class="dropdown">
+		    <a class="dropbtn">Bem-vindo </a>	                    
+		
+		    <div class="dropdown-content">
+		        <a href="{% url 'home' %}"> Logout </a>
+		    </div>
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
 
 	<section id="main">
@@ -64,7 +82,7 @@
 			<div class="container-top-down">
 				<h3> Tem um {{modelo}}? </h3>
 				<ul class="actions">
-					<li><a href="{% url 'login' %}" class="button alt"> Dê sua opinião </a></li>
+					<li><a href="{% url 'cadastro-opiniao' %}" class="button alt"> Dê sua opinião </a></li>
 				</ul>
 			</div>
 			

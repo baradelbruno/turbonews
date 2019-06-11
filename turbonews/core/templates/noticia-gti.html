@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block usuario %}
+
+	{% if logado %}
+		<div class="dropdown">
+		    <a class="dropbtn">Bem-vindo </a>	                    
+		
+		    <div class="dropdown-content">
+		        <a href="{% url 'home' %}"> Logout </a>
+		    </div>
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
         
 	<!-- Main -->
@@ -19,15 +37,31 @@
             <p>O VW Golf GTI é a versão mais potente do modelo disponível no mercado brasileiro. Ele é o único da linha com motor 2.0 - e também a única das três versões disponíveis que é movida apenas à gasolina. Ele é capaz de entregar 220 cv de potência e torque de 35,7 kgfm. Já o câmbio é automático de seis velocidades.</p>
 		</div>
 
-		{% for c in comentarios %}
+		<div class="inner">
+                    <h3>Comentários</h3>
+                </div>
+                
+				{% for c in comentarios %}
+					<div class="inner" style="border-top: solid 1px; padding-top: 20px">
+						<strong> {{ c.usuario }} </strong>
+						<p> {{ c.comentario }} </p>
+					</div>
 				
-			<div class="inner">
-				<strong> {{ c.usuario }} </strong>
-				<p> {{ c.comentario }} </p>
-			</div>
-				
-		{% endfor %}
+				{% endfor %}
 
-	</section>
+				<div class="inner" style="border-top: solid 1px; padding-top: 20px">
+				<h3> Deixe aqui seu comentário! </h3>
+					<form method="POST">
+					{% csrf_token %}
+
+						<div>
+							<textarea name="comentario" style="width: 60%; height: 40%;"></textarea>
+						</div>
+						
+						<br> <input type="submit" placeholder="submeter">
+					</form>
+            
+        </div>
+    </section>
 	
 {% endblock %}

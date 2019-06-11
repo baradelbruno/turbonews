@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block usuario %}
+
+	{% if logado %}
+		<div class="dropdown">
+		    <a class="dropbtn">Bem-vindo </a>	                    
+		
+		    <div class="dropdown-content">
+		        <a href="{% url 'home' %}"> Logout </a>
+		    </div>
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
 
 			<section id="main" >
@@ -16,14 +34,30 @@
                     <p>O propulsor de quatro cilindros entrega 182 cv e 24,5 kgfm de torque, números bem superiores aos 139/140 cv (etanol e gasolina) e 17,4/17,3 kgfm a partir de 4.800 rpm (5.000 rpm com gasolina). Na Europa, a motorização foi associada ao nome Sport, com estilo mais arrojado e câmbio manual de seis marchas, que não será adotado no HR-V nacional.</p>
 				</div>
 
+				<div class="inner">
+                    <h3>Comentários</h3>
+                </div>
+                
 				{% for c in comentarios %}
-				
-					<div class="inner">
+					<div class="inner" style="border-top: solid 1px; padding-top: 20px">
 						<strong> {{ c.usuario }} </strong>
 						<p> {{ c.comentario }} </p>
 					</div>
 				
 				{% endfor %}
+
+				<div class="inner" style="border-top: solid 1px; padding-top: 20px">
+				<h3> Deixe aqui seu comentário! </h3>
+					<form method="POST">
+					{% csrf_token %}
+
+						<div>
+							<textarea name="comentario" style="width: 60%; height: 40%;"></textarea>
+						</div>
+						
+						<br> <input type="submit" placeholder="submeter">
+					</form>
+                </div>
 				
 			</section>
 

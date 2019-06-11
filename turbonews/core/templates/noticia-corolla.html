@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block usuario %}
+
+	{% if logado %}
+		<div class="dropdown">
+		    <a class="dropbtn">Bem-vindo </a>	                    
+		
+		    <div class="dropdown-content">
+		        <a href="{% url 'home' %}"> Logout </a>
+		    </div>
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
 		<!-- Main -->
 			<section id="main" >
@@ -22,16 +40,19 @@
                     O preço é o maior mistério envolvendo o Corolla. Se seguir a tabela de preços da geração atual e os valores praticados por seus rivais, o sedã deve ter valor inicial por volta dos R$ 100 mil. Pode até ser um pouco mais alto, já que o Corolla XEi 2.0 CVT, justamente o modelo mais vendido, custa R$ 105.990. Na versão híbrida, que terá o conjunto motriz importado, o valor deve subir até passar a barreira dos R$ 120 mil. Vale lembrar que o Prius é vendido por R$ 125.450.</p>
 				</div>
 
+                <div class="inner">
+                    <h3>Comentários</h3>
+                </div>
+                
 				{% for c in comentarios %}
-				
-					<div class="inner">
+					<div class="inner" style="border-top: solid 1px; padding-top: 20px">
 						<strong> {{ c.usuario }} </strong>
 						<p> {{ c.comentario }} </p>
 					</div>
 				
 				{% endfor %}
 
-				<div class="inner">
+				<div class="inner" style="border-top: solid 1px; padding-top: 20px">
 				<h3> Deixe aqui seu comentário! </h3>
 					<form method="POST">
 					{% csrf_token %}
