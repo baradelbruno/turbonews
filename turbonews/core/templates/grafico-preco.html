@@ -12,19 +12,24 @@
 		</div>
 
 	{% else %}
- 
 		<a href="{% url 'login' %}"> Login </a>
 	{% endif %}
 
 {% endblock %}
 
 {% block content %}
-
+	
+    <section id="main">
+		<div class="inner">
+            
 	<label>Buscar Carros</label>
 	<input class="form-control" id="filtro" type="text">
 	<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
 
 	<div id="grafico-container"> </div>
+            
+        </div>
+</section>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -33,7 +38,7 @@
 				var modelo = $("#filtro").val();
 
 				req = $.ajax({
-					url : "/graficos",
+					url : "/grafico-preco",
 					type : "POST",
 					data : {modelo : modelo}
 				});
@@ -83,6 +88,5 @@
 				});
 			});
 		});
-	</script>
-
+            </script>
 {% endblock %}

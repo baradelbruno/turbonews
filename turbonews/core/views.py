@@ -280,14 +280,20 @@ def graficoPreco(request):
 
 		return JsonResponse({'result' : 'success', 'precos': precos})
 
-	return render(request, "grafico-preco.html")
+	context = {
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
+	}
+        
+	return render(request, "grafico-preco.html", context)
 
 @csrf_exempt
 def graficoVendas(request):
 
 	if request.is_ajax():
 		segmento = request.POST['segmento']
-		carros = Carro.objects.filter(segmento=segmento)
+		marca = request.POST['marca']
+		carros = Carro.objects.filter(segmento=segmento, marca=marca)
 		vendas = []
 
 		for c in carros:
@@ -295,4 +301,9 @@ def graficoVendas(request):
 
 		return JsonResponse({'result' : 'success', 'vendas': vendas})
 
-	return render(request, "grafico-vendas.html")
+	context = {
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
+	}
+        
+	return render(request, "grafico-vendas.html", context)
