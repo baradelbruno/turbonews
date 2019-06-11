@@ -31,6 +31,19 @@
 				
 				{% endfor %}
 
+				<div class="inner">
+				<h3> Deixe aqui seu comentário! </h3>
+					<form method="POST">
+					{% csrf_token %}
+
+						<div>
+							<textarea name="comentario" style="width: 60%; height: 40%;"></textarea>
+						</div>
+						
+						<br> <input type="submit" placeholder="submeter">
+					</form>
+				
+				</div>
 			</section>
 
 {% endblock %}

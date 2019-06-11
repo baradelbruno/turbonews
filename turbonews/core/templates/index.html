@@ -3,16 +3,17 @@
 {% block usuario %}
 
 	{% if logado %}
-		<a href="{% url 'login' %}"> Login </a>
-
-	{% else %}
 		<div class="dropdown">
 		    <a class="dropbtn">Bem-vindo </a>	                    
 		
 		    <div class="dropdown-content">
 		        <a href="{% url 'home' %}"> Logout </a>
 		    </div>
-		</div> 
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
 	{% endif %}
 
 {% endblock %}

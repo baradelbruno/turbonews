@@ -5,16 +5,17 @@ from .models import Usuario, Carro, Opiniao, Comentario
 from .forms import CadastroUsuario, CadastroOpiniao
 from .fusioncharts import FusionCharts
 
-logado = False
+usuario = {
+	"username" : "default", 
+	"logado" : False
+}
 
 def home(request):
-	global logado
-	logado = False
+	usuario['logado'] = False
 
-	return render(request, "index.html", {"logado" : logado})
+	return render(request, "index.html", {"logado" : usuario['logado']})
 
 def login(request):
-	global logado
 	loginInvalido = False
 
 	if request.method == "POST":
@@ -22,8 +23,15 @@ def login(request):
 		senha = request.POST['senha']
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
-			logado = True
-			return render(request, "index.html", {"usuario" : username, "logado" : logado})
+			usuario['username'] = username
+			usuario['logado'] = True
+			
+			context = {
+				"usuario" : username,
+				"logado" : usuario['logado']
+			}
+
+			return render(request, "index.html", context)
 
 		else:
 			loginInvalido = True
@@ -55,7 +63,9 @@ def cadastro(request):
 
 	context = {
 		"form" : form,
-		"formValido" : formValido
+		"formValido" : formValido,
+		"usuario" : username,
+		"logado" : usuario['logado']
 	}
 
 	return render(request, templateName, context)
@@ -80,7 +90,9 @@ def elements_details(request, carro_pk):
 		"opinioes" : lista,
 		"marca" : carroEscolhido.marca,
 		"modelo" : carroEscolhido.modelo,
-		"imagem" : carroEscolhido.imagem
+		"imagem" : carroEscolhido.imagem,
+		"usuario" : username,
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "elements.html", context)
@@ -98,7 +110,9 @@ def fichaTecnica(request):
 		"imagemLeaf" : carros[2].imagem,
 		"bolt" : True,
 		"s90" : True,
-		"leaf" : True
+		"leaf" : True,
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "ficha-tecnica.html", context)
@@ -129,7 +143,9 @@ def fichaTecnica_details(request, carro_pk):
 		"imagemLeaf" : carros[2].imagem,
 		"bolt" : bolt,
 		"s90" : s90,
-		"leaf" : leaf
+		"leaf" : leaf,
+		"usuario" : username,
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "ficha-tecnica.html", context)
@@ -143,32 +159,48 @@ def fichaLeaf(request):
 def fichaVolvo(request):
 	return render(request, "ficha-volvo.html")
 
+@csrf_exempt
 def noticiaCorolla(request):
 	comentarios = Comentario.objects.filter(noticia=1)
-	print(comentarios)
+
+	if request.method == "POST":
+		novoComentario = Comentario()
+
+		if Usuario.objects.filter(username=usuario['username']).exists():
+			username = Usuario.objects.get(username=usuario['username'])
+			novoComentario.usuario = username
+			novoComentario.noticia = 1
+			novoComentario.comentario = request.POST['comentario']
+			novoComentario.save()
+		else:
+			return render(request, "login.html")
 
 	context = {
-		"comentarios" : comentarios
+		"comentarios" : comentarios,
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "noticia-corolla.html", context)
 
 def noticiaGti(request):
 	comentarios = Comentario.objects.filter(noticia=2)
-	print(comentarios)
 
 	context = {
-		"comentarios" : comentarios
+		"comentarios" : comentarios,
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "noticia-gti.html", context)
 
 def noticiaHrv(request):
 	comentarios = Comentario.objects.filter(noticia=3)
-	print(comentarios)
 
 	context = {
-		"comentarios" : comentarios
+		"comentarios" : comentarios,
+		"usuario" : username,
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "noticia-hrv.html", context)
@@ -199,14 +231,16 @@ def cadastroOpiniao(request):
 
 	context = {
 		"form" : form,
-		"formValido" : formValido
+		"formValido" : formValido,
+		"usuario" : username,
+		"logado" : usuario['logado']
 	}
 
 	return render(request, "cadastro-opiniao.html", context)
 
 @csrf_exempt
 def graficoPreco(request):
-        
+
 	if request.is_ajax():
 		modelo = request.POST['modelo']
 		carro = Carro.objects.get(modelo=modelo)
