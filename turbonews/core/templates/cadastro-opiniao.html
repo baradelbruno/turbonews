@@ -7,20 +7,83 @@
 			<p> Opinião cadastrada </p>
 		{% endif %}
 
-		<div class="inner">
-			<h3> Escolha o carro </h3>
-
-			<form method="POST">
-			{% csrf_token %}
-
-				{% for field in form %}
-					{{ field }}
-				{% endfor %}
-	
-				<button type="submit" name="button" class="btn login_btn">Submeter</button>
-
-			</form>
+        <div class="co-top">
+            <h3> Escolha o carro </h3>
+            <select onchange="location = this.value;" style="width: 25%;margin-bottom: 3%;">
+                    <option> -------- </option>
+                {% for carros in carros %}
+                    <option value="{% url 'elements_details' carros.pk %}"> {{carros.modelo}} </option>
+                {% endfor %}
+            </select>
         </div>
+        
+        <section class="container-inline">
+            <div class="box-alt left">
+                <textarea style="width: 100%; height: 90%;"></textarea>
+            </div>
+
+            <div class="box-alt right">	
+                <div class="co-box-notas">
+                    
+                  <strong style="margin-bottom: 5%;">Notas</strong>
+                  <div>Estilo</div>
+
+                    <select>
+                        <option>-----</option>
+                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>4</option> <option>5</option> <option>6</option>
+                        <option>7</option> <option>8</option> <option>9</option>
+                        <option>10</option>
+                      </select>
+
+                    <div>Acabamento</div>
+
+                    <select>
+                        <option>-----</option>
+                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>4</option> <option>5</option> <option>6</option>
+                        <option>7</option> <option>8</option> <option>9</option>
+                        <option>10</option>
+                      </select>
+
+                    <div>Interior</div>
+
+                    <select>
+                        <option>-----</option>
+                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>4</option> <option>5</option> <option>6</option>
+                        <option>7</option> <option>8</option> <option>9</option>
+                        <option>10</option>
+                      </select>
+
+                    <div>Desempenho</div>
+
+                    <select>
+                        <option>-----</option>
+                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>4</option> <option>5</option> <option>6</option>
+                        <option>7</option> <option>8</option> <option>9</option>
+                        <option>10</option>
+                      </select>
+
+                    <div>Consumo</div>
+
+                    <select>
+                        <option>-----</option>
+                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>4</option> <option>5</option> <option>6</option>
+                        <option>7</option> <option>8</option> <option>9</option>
+                        <option>10</option>
+                      </select>
+
+                    <strong style="margin-top: 8%;">Avaliação Geral</strong>
+                   
+                </div>
+            </div>
+        </section>
+
+
+        <button type="submit" name="button" class="co-submit_btn">Submeter</button>
 
 	</section>
 

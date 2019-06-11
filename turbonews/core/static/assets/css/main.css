@@ -4074,6 +4074,43 @@
 /* Show the dropdown menu on hover */
 .dropdown-estat:hover .dropdown-content-estat {display: block;}
 
+.co-top{
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+.co-box-notas {
+    height: 80%;
+    width: 100%;
+    background: rgb(255, 230, 245);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.co-box-text {
+    height: 80%;
+    width: 25%;
+    background: rgb(255, 230, 245);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.co-submit_btn {
+    display: inline-block;
+    height: 3.5em;
+    line-height: 3.65em;
+    padding: 0 2.25em;
+    padding-left: 1.35em;
+    margin-right: 0.5em;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 15%;
+}
+
 
 
 
