@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Usuario, Carro, Opiniao, Comentario
-from .forms import CadastroUsuario, CadastroOpiniao
+from .forms import CadastroUsuario
 from .fusioncharts import FusionCharts
 
 usuario = {
@@ -234,35 +234,33 @@ def noticiaHrv(request):
 
 	return render(request, "noticia-hrv.html", context)
 
+@csrf_exempt
 def cadastroOpiniao(request):
 	formValido = False  
 
 	if usuario['logado'] == False:
 		return render(request, 'login.html')
 
+	carros = Carro.objects.all()
+
 	if request.method == 'POST':
-		form = CadastroOpiniao(request.POST)
 
-		if form.is_valid():
-			formValido = True
-			novaOpiniao = Opiniao()
-			
-			novaOpiniao.carro = Carro.objects.get(id=form.cleaned_data['modelos'])
-			novaOpiniao.opiniao = form.cleaned_data['opiniao']
-			novaOpiniao.estilo = form.cleaned_data['estilo']
-			novaOpiniao.acabamento = form.cleaned_data['acabamento']
-			novaOpiniao.interior = form.cleaned_data['interior']
-			novaOpiniao.desempenho = form.cleaned_data['desempenho']
-			novaOpiniao.consumo = form.cleaned_data['consumo']
-			novaOpiniao.save()
-			
-			form = CadastroOpiniao()
+		novaOpiniao = Opiniao()
 
-	else:
-		form = CadastroOpiniao()
+		novaOpiniao.carro = Carro.objects.get(modelo=request.POST['carro'])
+		novaOpiniao.opiniao = request.POST['opiniao']
+		novaOpiniao.estilo = request.POST['estilo']
+		novaOpiniao.acabamento = request.POST['acabamento']
+		novaOpiniao.interior = request.POST['interior']
+		novaOpiniao.desempenho = request.POST['desempenho']
+		novaOpiniao.consumo = request.POST['consumo']
+		formValido = True
+			
+		novaOpiniao.save()
 
 	context = {
-		"form" : form,
+		"carros" : carros,
+		# "form" : form,
 		"formValido" : formValido,
 		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
