@@ -21,11 +21,15 @@
 					<div class="dropdown-estat">
 	                    <a class="dropbtn-estat">Estatísticas </a>	                    
 	                    <div class="dropdown-content-estat">
-	                        <a href="{% url 'home' %}">Tabela FIPE </a>
-                            <a href="{% url 'home' %}">Vendas</a>
+	                        <a href="{% url 'grafico-vendas' %}">Tabela FIPE </a>
+                            <a href="{% url 'grafico-preco' %}">Vendas</a>
 	                    </div>
 	                </div> 
-                    <a href="{% url 'login' %}"> Login </a>
+
+	                {% block usuario %}
+
+	                {% endblock %}
+
 				</nav>
 			</div>
 		</header>

@@ -50,4 +50,5 @@ class Comentario(models.Model):
 		return self.usuario
 
 	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+	noticia = models.IntegerField('Noticia', default=0)
 	comentario = models.TextField('Comentario', default="dummy")

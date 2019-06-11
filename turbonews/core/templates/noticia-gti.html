@@ -18,13 +18,16 @@
             <p>Mas tem mais: existe a opção do Pacote Premium, de R$ 9.550. Ele inclui ajuste de distância automático, assistente de estacionamento, assistente para luz alta, farol principal com LED com luz para trânsito em curvas, Front Assist inclusive de freio de emergência automático para trânsito na cidade e reconhecimento de cansaço. A soma de tudo isso? R$ 172.235 - mais de R$ 7 mil a mais do que o cobrado pelo Passat, sedã premium da marca alemã (atualmente vendido por R$ 164.620).</p>
             <p>O VW Golf GTI é a versão mais potente do modelo disponível no mercado brasileiro. Ele é o único da linha com motor 2.0 - e também a única das três versões disponíveis que é movida apenas à gasolina. Ele é capaz de entregar 220 cv de potência e torque de 35,7 kgfm. Já o câmbio é automático de seis velocidades.</p>
 		</div>
+
+		{% for c in comentarios %}
+				
+			<div class="inner">
+				<strong> {{ c.usuario }} </strong>
+				<p> {{ c.comentario }} </p>
+			</div>
+				
+		{% endfor %}
+
 	</section>
-
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+	
 {% endblock %}

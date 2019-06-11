@@ -15,12 +15,16 @@
                     <a class="image fit"><img src="{{STATIC_URL}}static/images/hrv-noticia2.jpg" alt="" /></a>
                     <p>O propulsor de quatro cilindros entrega 182 cv e 24,5 kgfm de torque, números bem superiores aos 139/140 cv (etanol e gasolina) e 17,4/17,3 kgfm a partir de 4.800 rpm (5.000 rpm com gasolina). Na Europa, a motorização foi associada ao nome Sport, com estilo mais arrojado e câmbio manual de seis marchas, que não será adotado no HR-V nacional.</p>
 				</div>
-			</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+				{% for c in comentarios %}
+				
+					<div class="inner">
+						<strong> {{ c.usuario }} </strong>
+						<p> {{ c.comentario }} </p>
+					</div>
+				
+				{% endfor %}
+				
+			</section>
 
 {% endblock %}

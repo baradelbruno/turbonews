@@ -41,14 +41,14 @@ urlpatterns = [
     path('grafico-preco', views.graficoPreco, name="grafico-preco"),
     path('grafico-vendas', views.graficoVendas, name="grafico-vendas"),
     
-    path('log', views.homeLog, name="home-log"),
-    path('elements-log', views.elementsLog, name="elements-log"),
-    path('ficha-tecnica-log', views.fichaTecnicaLog, name="ficha-tecnica-log"),
-    path('ficha-bolt-log', views.fichaBoltLog, name="ficha-bolt-log"),
-    path('ficha-leaf-log', views.fichaLeafLog, name="ficha-leaf-log"),
-    path('ficha-volvo-log', views.fichaVolvoLog, name="ficha-volvo-log"),
-    path('noticia-corolla-log', views.noticiaCorollaLog, name="noticia-corolla-log"),
-    path('noticia-gti-log', views.noticiaGtiLog, name="noticia-gti-log"),
-    path('noticia-hrv-log', views.noticiaHrvLog, name="noticia-hrv-log"),
+    # path('log', views.homeLog, name="home-log"),
+    # path('elements-log', views.elementsLog, name="elements-log"),
+    # path('ficha-tecnica-log', views.fichaTecnicaLog, name="ficha-tecnica-log"),
+    # path('ficha-bolt-log', views.fichaBoltLog, name="ficha-bolt-log"),
+    # path('ficha-leaf-log', views.fichaLeafLog, name="ficha-leaf-log"),
+    # path('ficha-volvo-log', views.fichaVolvoLog, name="ficha-volvo-log"),
+    # path('noticia-corolla-log', views.noticiaCorollaLog, name="noticia-corolla-log"),
+    # path('noticia-gti-log', views.noticiaGtiLog, name="noticia-gti-log"),
+    # path('noticia-hrv-log', views.noticiaHrvLog, name="noticia-hrv-log"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,19 +5,25 @@ from .models import Usuario, Carro, Opiniao, Comentario
 from .forms import CadastroUsuario, CadastroOpiniao
 from .fusioncharts import FusionCharts
 
-def home(request):
+logado = False
 
-	return render(request, "index.html", {"logado" : True})
+def home(request):
+	global logado
+	logado = False
+
+	return render(request, "index.html", {"logado" : logado})
 
 def login(request):
+	global logado
 	loginInvalido = False
 
 	if request.method == "POST":
-		username = form.cleaned_data['username']
-		senha = form.cleaned_data['senha']
+		username = request.POST['username']
+		senha = request.POST['senha']
 
 		if Usuario.objects.filter(username=username, senha=senha).exists():
-			return redirect('/log')
+			logado = True
+			return render(request, "index.html", {"usuario" : username, "logado" : logado})
 
 		else:
 			loginInvalido = True
@@ -138,7 +144,8 @@ def fichaVolvo(request):
 	return render(request, "ficha-volvo.html")
 
 def noticiaCorolla(request):
-	comentarios = Comentario.objects.all()
+	comentarios = Comentario.objects.filter(noticia=1)
+	print(comentarios)
 
 	context = {
 		"comentarios" : comentarios
@@ -147,7 +154,8 @@ def noticiaCorolla(request):
 	return render(request, "noticia-corolla.html", context)
 
 def noticiaGti(request):
-	comentarios = Comentario.objects.all()
+	comentarios = Comentario.objects.filter(noticia=2)
+	print(comentarios)
 
 	context = {
 		"comentarios" : comentarios
@@ -156,7 +164,8 @@ def noticiaGti(request):
 	return render(request, "noticia-gti.html", context)
 
 def noticiaHrv(request):
-	comentarios = Comentario.objects.all()
+	comentarios = Comentario.objects.filter(noticia=3)
+	print(comentarios)
 
 	context = {
 		"comentarios" : comentarios
@@ -207,7 +216,7 @@ def graficoPreco(request):
 
 		return JsonResponse({'result' : 'success', 'precos': precos})
 
-	return render(request, "graficos.html")
+	return render(request, "grafico-preco.html")
 
 @csrf_exempt
 def graficoVendas(request):
@@ -223,49 +232,3 @@ def graficoVendas(request):
 		return JsonResponse({'result' : 'success', 'vendas': vendas})
 
 	return render(request, "grafico-vendas.html")
-
-# Views do usuário logado
-def homeLog(request):
-	return render(request, "logado/index-log.html")
-
-def elementsLog(request):
-	return render(request, "logado/elements-log.html")
-
-def fichaTecnicaLog(request):
-	return render(request, "logado/ficha-tecnica-log.html")
-
-def fichaBoltLog(request):
-	return render(request, "logado/ficha-bolt-log.html")
-
-def fichaLeafLog(request):
-	return render(request, "logado/ficha-leaf-log.html")
-
-def fichaVolvoLog(request):
-	return render(request, "logado/ficha-volvo-log.html")
-
-def noticiaCorollaLog(request):
-	comentarios = Comentario.objects.all()
-
-	context = {
-		"comentarios" : lista
-	}
-
-	return render(request, "logado/noticia-corolla-log.html", context)
-
-def noticiaGtiLog(request):
-	comentarios = Comentario.objects.all()
-
-	context = {
-		"comentarios" : comentarios
-	}
-
-	return render(request, "logado/noticia-corolla-log.html", context)
-
-def noticiaHrvLog(request):
-	comentarios = Comentario.objects.all()
-
-	context = {
-		"comentarios" : comentarios
-	}
-
-	return render(request, "logado/noticia-corolla-log.html", context)
