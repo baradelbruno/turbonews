@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block usuario %}
+
+	{% if logado %}
+		<div class="dropdown">
+		    <a class="dropbtn">Bem-vindo </a>	                    
+		
+		    <div class="dropdown-content">
+		        <a href="{% url 'home' %}"> Logout </a>
+		    </div>
+		</div>
+
+	{% else %}
+ 
+		<a href="{% url 'login' %}"> Login </a>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
 
 	<label> Buscar Segmento </label>
