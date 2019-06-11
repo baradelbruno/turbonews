@@ -2,7 +2,9 @@
 
 {% block content %}
 
-	<section id="main">
+<section id="main">
+		<div class="inner">
+
 		{% if formValido %}
 			<p> Opinião cadastrada </p>
 		{% endif %}
@@ -29,8 +31,8 @@
                   <div>Estilo</div>
 
                     <select>
-                        <option>-----</option>
-                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>-----</option><option>0</option>
+                        <option>1</option> <option>2</option> <option>3</option>
                         <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option>
                         <option>10</option>
@@ -39,8 +41,8 @@
                     <div>Acabamento</div>
 
                     <select>
-                        <option>-----</option>
-                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>-----</option><option>0</option>
+                        <option>1</option> <option>2</option> <option>3</option>
                         <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option>
                         <option>10</option>
@@ -49,8 +51,8 @@
                     <div>Interior</div>
 
                     <select>
-                        <option>-----</option>
-                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>-----</option><option>0</option>
+                        <option>1</option> <option>2</option> <option>3</option>
                         <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option>
                         <option>10</option>
@@ -59,8 +61,8 @@
                     <div>Desempenho</div>
 
                     <select>
-                        <option>-----</option>
-                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>-----</option><option>0</option>
+                        <option>1</option> <option>2</option> <option>3</option>
                         <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option>
                         <option>10</option>
@@ -70,13 +72,12 @@
 
                     <select>
                         <option>-----</option>
-                        <option>0</option> <option>2</option> <option>3</option>
+                        <option>1</option> <option>2</option> <option>3</option>
                         <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option>
                         <option>10</option>
                       </select>
 
-                    <strong style="margin-top: 8%;">Avaliação Geral</strong>
                    
                 </div>
             </div>
@@ -84,7 +85,8 @@
 
 
         <button type="submit" name="button" class="co-submit_btn">Submeter</button>
-
-	</section>
+            
+    </div>
+</section>
 
 {% endblock %}
