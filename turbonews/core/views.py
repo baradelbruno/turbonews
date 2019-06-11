@@ -27,7 +27,7 @@ def login(request):
 			usuario['logado'] = True
 			
 			context = {
-				"usuario" : username,
+				"usuario" : username['username'],
 				"logado" : usuario['logado']
 			}
 
@@ -64,7 +64,7 @@ def cadastro(request):
 	context = {
 		"form" : form,
 		"formValido" : formValido,
-		"usuario" : username,
+		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
 	}
 
@@ -91,7 +91,7 @@ def elements_details(request, carro_pk):
 		"marca" : carroEscolhido.marca,
 		"modelo" : carroEscolhido.modelo,
 		"imagem" : carroEscolhido.imagem,
-		"usuario" : username,
+		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
 	}
 
@@ -144,7 +144,7 @@ def fichaTecnica_details(request, carro_pk):
 		"bolt" : bolt,
 		"s90" : s90,
 		"leaf" : leaf,
-		"usuario" : username,
+		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
 	}
 
@@ -199,7 +199,7 @@ def noticiaHrv(request):
 
 	context = {
 		"comentarios" : comentarios,
-		"usuario" : username,
+		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
 	}
 
@@ -232,7 +232,7 @@ def cadastroOpiniao(request):
 	context = {
 		"form" : form,
 		"formValido" : formValido,
-		"usuario" : username,
+		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
 	}
 
