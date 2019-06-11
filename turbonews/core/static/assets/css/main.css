@@ -4035,8 +4035,12 @@
     padding-left: 15px;
     padding-top: 15px;
     padding-right: 15px;
-    padding-bottom: 0px;
     border: 1px solid black;
+    border:1px solid black; 
+    display: inline-flex; 
+    width: 100%; 
+    margin-bottom: 10px; 
+    padding-bottom: 15px;
 }
 
 .dropdown-estat{   

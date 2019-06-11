@@ -27,7 +27,7 @@ def login(request):
 			usuario['logado'] = True
 			
 			context = {
-				"usuario" : username['username'],
+				"usuario" : usuario['username'],
 				"logado" : usuario['logado']
 			}
 
