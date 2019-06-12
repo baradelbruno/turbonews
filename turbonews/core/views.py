@@ -191,14 +191,15 @@ def noticiaCorolla(request):
 	if request.method == "POST":
 		novoComentario = Comentario()
 
-		if Usuario.objects.filter(username=usuario['username']).exists():
-			username = Usuario.objects.get(username=usuario['username'])
-			novoComentario.usuario = username
-			novoComentario.noticia = 1
-			novoComentario.comentario = request.POST['comentario']
-			novoComentario.save()
-		else:
-			return render(request, "login.html")
+		if request.POST['comentario'] != "":
+			if Usuario.objects.filter(username=usuario['username']).exists():
+				username = Usuario.objects.get(username=usuario['username'])
+				novoComentario.usuario = username
+				novoComentario.noticia = 1
+				novoComentario.comentario = request.POST['comentario']
+				novoComentario.save()
+			else:
+				return render(request, "login.html")
 
 	context = {
 		"comentarios" : comentarios,
@@ -214,14 +215,15 @@ def noticiaGti(request):
 	if request.method == "POST":
 		novoComentario = Comentario()
 
-		if Usuario.objects.filter(username=usuario['username']).exists():
-			username = Usuario.objects.get(username=usuario['username'])
-			novoComentario.usuario = username
-			novoComentario.noticia = 2
-			novoComentario.comentario = request.POST['comentario']
-			novoComentario.save()
-		else:
-			return render(request, "login.html")
+		if request.POST['comentario'] != "":
+			if Usuario.objects.filter(username=usuario['username']).exists():
+				username = Usuario.objects.get(username=usuario['username'])
+				novoComentario.usuario = username
+				novoComentario.noticia = 2
+				novoComentario.comentario = request.POST['comentario']
+				novoComentario.save()
+			else:
+				return render(request, "login.html")
 
 	context = {
 		"comentarios" : comentarios,
@@ -236,14 +238,15 @@ def noticiaHrv(request):
 	if request.method == "POST":
 		novoComentario = Comentario()
 
-		if Usuario.objects.filter(username=usuario['username']).exists():
-			username = Usuario.objects.get(username=usuario['username'])
-			novoComentario.usuario = username
-			novoComentario.noticia = 3
-			novoComentario.comentario = request.POST['comentario']
-			novoComentario.save()
-		else:
-			return render(request, "login.html")
+		if request.POST['comentario'] != "":
+			if Usuario.objects.filter(username=usuario['username']).exists():
+				username = Usuario.objects.get(username=usuario['username'])
+				novoComentario.usuario = username
+				novoComentario.noticia = 3
+				novoComentario.comentario = request.POST['comentario']
+				novoComentario.save()
+			else:
+				return render(request, "login.html")
 
 	context = {
 		"comentarios" : comentarios,
@@ -253,7 +256,6 @@ def noticiaHrv(request):
 
 	return render(request, "noticia-hrv.html", context)
 
-@csrf_exempt
 def cadastroOpiniao(request):
 	formValido = False  
 
@@ -263,19 +265,18 @@ def cadastroOpiniao(request):
 	carros = Carro.objects.all()
 
 	if request.method == 'POST':
-
-		novaOpiniao = Opiniao()
-
-		novaOpiniao.carro = Carro.objects.get(modelo=request.POST['carro'])
-		novaOpiniao.opiniao = request.POST['opiniao']
-		novaOpiniao.estilo = request.POST['estilo']
-		novaOpiniao.acabamento = request.POST['acabamento']
-		novaOpiniao.interior = request.POST['interior']
-		novaOpiniao.desempenho = request.POST['desempenho']
-		novaOpiniao.consumo = request.POST['consumo']
-		formValido = True
-			
-		novaOpiniao.save()
+		if request.POST['opiniao'] != "":
+			novaOpiniao = Opiniao()
+			novaOpiniao.carro = Carro.objects.get(modelo=request.POST['carro'])
+			novaOpiniao.opiniao = request.POST['opiniao']
+			novaOpiniao.estilo = request.POST['estilo']
+			novaOpiniao.acabamento = request.POST['acabamento']
+			novaOpiniao.interior = request.POST['interior']
+			novaOpiniao.desempenho = request.POST['desempenho']
+			novaOpiniao.consumo = request.POST['consumo']
+				
+			novaOpiniao.save()
+			formValido = True
 
 	context = {
 		"carros" : carros,
