@@ -40,13 +40,27 @@
 					{% csrf_token %}
 
 						<div>
-							<textarea name="comentario" style="width: 60%; height: 40%;"></textarea>
+							<textarea id="campo-coment" name="comentario" style="width: 60%; height: 40%;"></textarea>
 						</div>
 						
-						<br> <input type="submit" placeholder="submeter">
+						<br> <input id="submit" type="submit" placeholder="submeter">
 					</form>
 				
 				</div>
 			</section>
+
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+            $('#submit').on("click", function(){
+                if ($("#campo-coment").val().length === 0){
+                    $("#campo-coment").val("PENIS")
+                }
+            });
+        });
+
+
+
+</script>
 
 {% endblock %}

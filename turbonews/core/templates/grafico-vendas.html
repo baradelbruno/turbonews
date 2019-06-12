@@ -7,9 +7,13 @@
 			<label> Buscar Segmento </label>
 			<input class="form-control" id="segmento" type="text">
 			<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
+            
+            <br>
+            <br>
 		            
 		    <label> Fitrar por Marca </label>
 			<input class="form-control" id="marca" type="text">
+            <button type="submit" id="filterButton" class="btn login_btn"> Filtrar </button>
     	</div>
 	
 	</section>
@@ -19,16 +23,53 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#updateButton").on("click", function(){
-
+            
+            $("#filterButton").on("click", function(){
+                
                 var segmento = $("#segmento").val();
 				var marca = $("#marca").val();
 
-                if ($("#marca").val().length === 0){
-                	data = {segmento: segmento}
-                } else {
-                	data = {segmento : segmento, marca : marca}
-                }
+                data = {segmento : segmento, marca : marca}
+
+				req = $.ajax({
+					url : "/grafico-vendas",
+					type : "POST",
+					data : data
+				});
+
+				req.done(function(data){
+					FusionCharts.ready(function () {
+					    var myChart = new FusionCharts({
+					        
+					        type: 'column2d',
+					        renderAt: 'grafico-container',
+					        dataFormat: 'json',
+					        dataSource: {
+					            chart: {
+					                caption: "Vendas",
+							        xAxisName: "Data",
+							        yAxisName: "Vendas",
+							        theme: "fusion"
+					            },
+					            
+					            data: data['vendas']
+					        }
+					    });
+
+					    myChart.render();
+					});
+                
+                });
+                
+            });
+                            
+
+            
+			$("#updateButton").on("click", function(){
+
+                var segmento = $("#segmento").val();
+
+                data = {segmento: segmento}
 
 				req = $.ajax({
 					url : "/grafico-vendas",

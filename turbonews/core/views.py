@@ -258,7 +258,7 @@ def cadastroOpiniao(request):
 	formValido = False  
 
 	if usuario['logado'] == False:
-		return render(request, 'login.html')
+		return redirect('login')
 
 	carros = Carro.objects.all()
 
