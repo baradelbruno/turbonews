@@ -161,13 +161,28 @@ def fichaTecnica_details(request, carro_pk):
 	return render(request, "ficha-tecnica.html", context)
 
 def fichaBolt(request):
-	return render(request, "ficha-bolt.html")
+	context = {
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
+	}
+
+	return render(request, "ficha-bolt.html", context)
 
 def fichaLeaf(request):
-	return render(request, "ficha-leaf.html")
+	context = {
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
+	}
+
+	return render(request, "ficha-leaf.html", context)
 
 def fichaVolvo(request):
-	return render(request, "ficha-volvo.html")
+	context = {
+		"usuario" : usuario['username'],
+		"logado" : usuario['logado']
+	}
+
+	return render(request, "ficha-volvo.html", context)
 
 @csrf_exempt
 def noticiaCorolla(request):
