@@ -2,24 +2,27 @@
 
 {% block content %}
 
+<div style="text-align: center; margin-left: 25%; margin-right: 25%">
+
 	<section id="main">
-		<div class="inner">
-			<label> Buscar Segmento </label>
-			<input class="form-control" id="segmento" type="text">
-			<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
+		<div class="inner" style="border: solid 1px; padding: 20px; background-color: #111; border-radius: 25px">
+			<label style="font-size: 20px"> Buscar Segmento </label>
+			<input class="form-control" id="segmento" type="text", style="background-color: white">
+			<button type="submit" id="updateButton" class="btn login_btn" style="background-color: darkred"> Pesquisar </button>
             
             <br>
             <br>
 		            
-		    <label> Fitrar por Marca </label>
-			<input class="form-control" id="marca" type="text">
-            <button type="submit" id="filterButton" class="btn login_btn"> Filtrar </button>
-    	</div>
-	
-	</section>
+		    <label style="font-size: 20px"> Fitrar por Marca </label>
+			<input class="form-control" id="marca" type="text" style="background-color: white">
+            <button type="submit" id="filterButton" class="btn login_btn" style="background-color: darkred"> Filtrar </button>
+    
+    <br><br>
 
 	<div id="grafico-container"> </div>
             
+        </div>        
+    </section>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -103,5 +106,7 @@
 			});
 		});
 	</script>
+    
+</div>
 
 {% endblock %}

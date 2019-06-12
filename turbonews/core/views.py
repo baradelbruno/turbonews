@@ -199,7 +199,7 @@ def noticiaCorolla(request):
 				novoComentario.comentario = request.POST['comentario']
 				novoComentario.save()
 			else:
-				return render(request, "login.html")
+				return redirect('login')
 
 	context = {
 		"comentarios" : comentarios,
@@ -223,7 +223,7 @@ def noticiaGti(request):
 				novoComentario.comentario = request.POST['comentario']
 				novoComentario.save()
 			else:
-				return render(request, "login.html")
+				return redirect('login')
 
 	context = {
 		"comentarios" : comentarios,
@@ -246,7 +246,7 @@ def noticiaHrv(request):
 				novoComentario.comentario = request.POST['comentario']
 				novoComentario.save()
 			else:
-				return render(request, "login.html")
+				return redirect('login')
 
 	context = {
 		"comentarios" : comentarios,
@@ -316,16 +316,14 @@ def graficoVendas(request):
 
 		if 'marca' not in request.POST:
 			carros = Carro.objects.filter(segmento=segmento)
-			print("pau", carros)
 		else:
 			marca = request.POST['marca']
 			carros = Carro.objects.filter(segmento=segmento, marca=marca)
-			print("penis", carros)
 		
 		vendas = []
 
 		for c in carros:
-			vendas.append({"label": c.marca, "value": c.numVendas})
+			vendas.append({"label": c.modelo, "value": c.numVendas})
 
 		return JsonResponse({'result' : 'success', 'vendas': vendas})
 

@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	
-    <section id="main">
-		<div class="inner">
-            
-	<label>Buscar Carros</label>
-	<input class="form-control" id="filtro" type="text">
-	<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
 
+<div style="text-align: center; margin-left: 25%; margin-right: 25%">
+   
+    <section id="main">
+		<div class="inner" style="border: solid 1px; padding: 20px; background-color: #111; border-radius: 25px">
+            
+	<label style="font-size: 23px">Buscar Carros</label>
+	<input class="form-control" id="filtro" type="text" style="background-color: white">
+	<button type="submit" id="updateButton" class="btn login_btn" style="background-color: darkred"> Pesquisar </button>
+
+       <br><br>     
+            
 	<div id="grafico-container"> </div>
             
         </div>
@@ -72,4 +76,7 @@
 			});
 		});
             </script>
+
+</div>
+        
 {% endblock %}
