@@ -12,7 +12,6 @@
 		</div>
 
 	{% else %}
- 
 		<a href="{% url 'login' %}"> Login </a>
 	{% endif %}
 
@@ -20,35 +19,38 @@
 
 {% block content %}
 
-<section id="main">
+	<section id="main">
 		<div class="inner">
-            
-
-	<label> Buscar Segmento </label>
-	<input class="form-control" id="segmento" type="text">
-	<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
-            
-    <label> Fitrar por Marca </label>
-	<input class="form-control" id="marca" type="text">
-            
-        
+			<label> Buscar Segmento </label>
+			<input class="form-control" id="segmento" type="text">
+			<button type="submit" id="updateButton" class="btn login_btn"> Pesquisar </button>
+		            
+		    <label> Fitrar por Marca </label>
+			<input class="form-control" id="marca" type="text">
+    	</div>
+	
+	</section>
 
 	<div id="grafico-container"> </div>
             
-    </div>
-</section>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#updateButton").on("click", function(){
 
-				var marca = $("#marca").val();
                 var segmento = $("#segmento").val();
+				var marca = $("#marca").val();
+
+                if ($("#marca").val().length === 0){
+                	data = {segmento: segmento}
+                } else {
+                	data = {segmento : segmento, marca : marca}
+                }
 
 				req = $.ajax({
 					url : "/grafico-vendas",
 					type : "POST",
-					data : {segmento : segmento, marca : marca}
+					data : data
 				});
 
 				req.done(function(data){

@@ -11,8 +11,6 @@ usuario = {
 }
 
 def home(request):
-    usuario['username'] = "default"
-    usuario['logado'] = False
 
     context = {
         "usuario" : usuario['username'],
@@ -47,6 +45,12 @@ def login(request):
 	}
 
 	return render(request, "login.html", context)
+
+def logout(request):
+	usuario['username'] = "default"
+	usuario['logado'] = False
+
+	return redirect("home")
 
 def cadastro(request):
 	templateName = "cadastro.html"
@@ -260,7 +264,6 @@ def cadastroOpiniao(request):
 
 	context = {
 		"carros" : carros,
-		# "form" : form,
 		"formValido" : formValido,
 		"usuario" : usuario['username'],
 		"logado" : usuario['logado']
@@ -292,12 +295,21 @@ def graficoVendas(request):
 
 	if request.is_ajax():
 		segmento = request.POST['segmento']
-		marca = request.POST['marca']
-		carros = Carro.objects.filter(segmento=segmento, marca=marca)
+
+		print(request.POST)
+
+		if 'marca' not in request.POST:
+			carros = Carro.objects.filter(segmento=segmento)
+			print("pau", carros)
+		else:
+			marca = request.POST['marca']
+			carros = Carro.objects.filter(segmento=segmento, marca=marca)
+			print("penis", carros)
+		
 		vendas = []
 
 		for c in carros:
-			vendas.append({"label": c.modelo, "value": c.numVendas})
+			vendas.append({"label": c.marca, "value": c.numVendas})
 
 		return JsonResponse({'result' : 'success', 'vendas': vendas})
 

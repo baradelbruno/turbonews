@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),	
     path('', views.home, name="home"),
     path('login', views.login, name="login"),
+    path('logout', views.logout, name="logout"),
     path('cadastro', views.cadastro, name="cadastro"),
     path('elements', views.elements, name="elements"),
     path('elements/<int:carro_pk>', views.elements_details, name="elements_details"),
