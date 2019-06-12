@@ -10,7 +10,7 @@ class CadastroUsuario(forms.Form):
 	widget=forms.TextInput(attrs={'placeholder':'Email', 'class':'form-control input_user'}))
 	
 	senha = forms.CharField(label="Senha", max_length=50,
-	widget=forms.TextInput(attrs={'placeholder':'Senha', 'class':'form-control input_user'}))
+	widget=forms.TextInput(attrs={'type': 'password', 'placeholder':'Senha', 'class':'form-control input_user'}))
 
 # class CadastroOpiniao(forms.Form):
 
