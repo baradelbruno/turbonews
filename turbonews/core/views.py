@@ -60,12 +60,15 @@ def cadastro(request):
 		form = CadastroUsuario(request.POST)
 
 		if form.is_valid():
-			formValido = True
 			novoUsuario = Usuario()
 			novoUsuario.username = form.cleaned_data['username']
 			novoUsuario.senha = form.cleaned_data['senha']
 			novoUsuario.email = form.cleaned_data['email']
-			novoUsuario.save()
+
+			if not Usuario.objects.filter(username=novoUsuario.username).exists():
+				novoUsuario.save()
+				formValido = True
+			
 			form = CadastroUsuario()
 
 	else: 
